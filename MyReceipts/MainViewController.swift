@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UITableViewController {
 
     let myReceipts = [
-    "ВкуссВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
+    "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
     ]
     
     
