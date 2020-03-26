@@ -27,17 +27,28 @@ class MainViewController: UITableViewController {
         
         return myReceipts.count
     }
-
+    
+    let receipts = [Receipt(shop: "ВкусВилл", price: "2000руб.", image: "ВкусВилл")
+    ]
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         // конфигурация ячейки. Является обязательным иначе программа упадет
         
-        cell.textLabel?.text = myReceipts[indexPath.row]
-        cell.imageView?.image = UIImage(named: myReceipts[indexPath.row])
+        cell.shopLabel.text = myReceipts[indexPath.row]
+        cell.imageOfStore.image = UIImage(named: myReceipts[indexPath.row])
+        cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
+        cell.imageOfStore.clipsToBounds = true
         
         return cell
     }
+    // MARK: - Table view delegate
+    //данный метод возвращает конкретную высоту строки
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
+    }
+    
+    
     
 
     /*

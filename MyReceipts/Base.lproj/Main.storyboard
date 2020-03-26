@@ -6,22 +6,64 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Мои чеки-->
         <scene sceneID="kPT-EQ-H0B">
             <objects>
                 <tableViewController id="KDX-8a-7Du" customClass="MainViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="abv-fL-C3B">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="abv-fL-C3B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Fwf-xX-6hB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Fwf-xX-6hB" customClass="CustomTableViewCell" customModule="MyReceipts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fwf-xX-6hB" id="AvZ-zZ-iGu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-hk-Gjw">
+                                            <rect key="frame" x="15" y="10" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="6iu-Pm-Na6"/>
+                                                <constraint firstAttribute="height" constant="65" id="e4L-2E-zNb"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81v-WT-cKL">
+                                            <rect key="frame" x="95" y="17" width="299" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="vcm-Yq-Dwd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkX-1C-USO">
+                                            <rect key="frame" x="95" y="46" width="299" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="4MA-zv-QYa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="leading" secondItem="AvZ-zZ-iGu" secondAttribute="leading" constant="15" id="3Qo-Cy-VUQ"/>
+                                        <constraint firstItem="81v-WT-cKL" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="15" id="7n0-kz-a04"/>
+                                        <constraint firstItem="81v-WT-cKL" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" id="BhQ-XS-3I4"/>
+                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="centerY" secondItem="AvZ-zZ-iGu" secondAttribute="centerY" id="Ptz-a4-sV5"/>
+                                        <constraint firstItem="81v-WT-cKL" firstAttribute="top" secondItem="AvZ-zZ-iGu" secondAttribute="topMargin" constant="6" id="Wzx-GZ-Ldf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GkX-1C-USO" secondAttribute="bottom" constant="7" id="cOx-4g-pJP"/>
+                                        <constraint firstItem="GkX-1C-USO" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" id="lOj-id-fzT"/>
+                                        <constraint firstItem="GkX-1C-USO" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="15" id="nEL-6E-nri"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageOfStore" destination="Tja-hk-Gjw" id="FsG-9a-AW6"/>
+                                    <outlet property="priceLabel" destination="GkX-1C-USO" id="nLg-yl-woH"/>
+                                    <outlet property="shopLabel" destination="81v-WT-cKL" id="Rre-UJ-GDQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -29,11 +71,11 @@
                             <outlet property="delegate" destination="KDX-8a-7Du" id="uBg-cP-ntY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="SDD-wS-nut"/>
+                    <navigationItem key="navigationItem" title="Мои чеки" id="SDD-wS-nut"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMO-x6-eVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="32"/>
+            <point key="canvasLocation" x="63.768115942028992" y="31.473214285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOi-wI-DTB">
@@ -42,6 +84,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DPT-ZX-tyu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="KDX-8a-7Du" kind="relationship" relationship="rootViewController" id="ffl-LE-4OZ"/>
