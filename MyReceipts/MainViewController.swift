@@ -10,11 +10,8 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let myReceipts = [
-    "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
-    ]
     
-    
+    let receipts = Receipt.getPlaces()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,29 +22,22 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // вернет количество строк в зависимости от количества наших чеков
         
-        return myReceipts.count
+        return receipts.count
     }
     
-    let receipts = [Receipt(shop: "ВкусВилл", price: "2000руб.", image: "ВкусВилл")
-    ]
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         // конфигурация ячейки. Является обязательным иначе программа упадет
         
-        cell.shopLabel.text = myReceipts[indexPath.row]
-        cell.imageOfStore.image = UIImage(named: myReceipts[indexPath.row])
+        cell.shopLabel.text = receipts[indexPath.row].shop
+        cell.priceLabel.text = receipts[indexPath.row].price
+        cell.imageOfStore.image = UIImage(named: receipts[indexPath.row].image)
         cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
         cell.imageOfStore.clipsToBounds = true
         
         return cell
     }
-    // MARK: - Table view delegate
-    //данный метод возвращает конкретную высоту строки
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
-    }
-    
     
     
 
@@ -60,5 +50,5 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
 }

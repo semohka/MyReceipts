@@ -25,38 +25,35 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-hk-Gjw">
                                             <rect key="frame" x="15" y="10" width="65" height="65"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="6iu-Pm-Na6"/>
-                                                <constraint firstAttribute="height" constant="65" id="e4L-2E-zNb"/>
+                                                <constraint firstAttribute="width" constant="65" id="085-pQ-Bn7"/>
+                                                <constraint firstAttribute="height" constant="65" id="jKa-rF-EGr"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81v-WT-cKL">
-                                            <rect key="frame" x="95" y="17" width="299" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="vcm-Yq-Dwd"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkX-1C-USO">
-                                            <rect key="frame" x="95" y="46" width="299" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="4MA-zv-QYa"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e4h-Xi-REY">
+                                            <rect key="frame" x="96" y="8" width="302" height="69"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81v-WT-cKL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkX-1C-USO">
+                                                    <rect key="frame" x="0.0" y="38" width="302" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="leading" secondItem="AvZ-zZ-iGu" secondAttribute="leading" constant="15" id="3Qo-Cy-VUQ"/>
-                                        <constraint firstItem="81v-WT-cKL" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="15" id="7n0-kz-a04"/>
-                                        <constraint firstItem="81v-WT-cKL" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" id="BhQ-XS-3I4"/>
-                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="centerY" secondItem="AvZ-zZ-iGu" secondAttribute="centerY" id="Ptz-a4-sV5"/>
-                                        <constraint firstItem="81v-WT-cKL" firstAttribute="top" secondItem="AvZ-zZ-iGu" secondAttribute="topMargin" constant="6" id="Wzx-GZ-Ldf"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="GkX-1C-USO" secondAttribute="bottom" constant="7" id="cOx-4g-pJP"/>
-                                        <constraint firstItem="GkX-1C-USO" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" id="lOj-id-fzT"/>
-                                        <constraint firstItem="GkX-1C-USO" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="15" id="nEL-6E-nri"/>
+                                        <constraint firstAttribute="bottom" secondItem="e4h-Xi-REY" secondAttribute="bottom" constant="8" id="0VG-ER-UjI"/>
+                                        <constraint firstAttribute="trailing" secondItem="e4h-Xi-REY" secondAttribute="trailing" constant="16" id="aQu-eF-M85"/>
+                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="leading" secondItem="AvZ-zZ-iGu" secondAttribute="leading" constant="15" id="loe-gX-OYw"/>
+                                        <constraint firstItem="e4h-Xi-REY" firstAttribute="top" secondItem="AvZ-zZ-iGu" secondAttribute="top" constant="8" id="mGs-WG-0Wy"/>
+                                        <constraint firstItem="Tja-hk-Gjw" firstAttribute="centerY" secondItem="e4h-Xi-REY" secondAttribute="centerY" id="oPJ-S5-GID"/>
+                                        <constraint firstItem="e4h-Xi-REY" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="16" id="z5D-4S-3dv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -71,11 +68,211 @@
                             <outlet property="delegate" destination="KDX-8a-7Du" id="uBg-cP-ntY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Мои чеки" id="SDD-wS-nut"/>
+                    <navigationItem key="navigationItem" title="Мои чеки" id="SDD-wS-nut">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7dZ-8b-d0s">
+                            <connections>
+                                <segue destination="oOA-gK-wpS" kind="presentation" modalTransitionStyle="flipHorizontal" id="ns0-oH-yko"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMO-x6-eVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63.768115942028992" y="31.473214285714285"/>
+        </scene>
+        <!--Новый чек-->
+        <scene sceneID="DNv-Gd-s73">
+            <objects>
+                <tableViewController id="T7s-Jb-5h2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFb-tw-7ft">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                        <sections>
+                            <tableViewSection id="qFP-gC-GoM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="tlf-jZ-N7f">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tlf-jZ-N7f" id="0jM-v3-rfy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wMo-JS-CG6">
+                                                    <rect key="frame" x="16" y="8" width="382" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX9-7k-0ev">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Название товара" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2i-HS-Rvr">
+                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="wMo-JS-CG6" secondAttribute="bottom" constant="8" id="JHQ-ku-yce"/>
+                                                <constraint firstAttribute="trailing" secondItem="wMo-JS-CG6" secondAttribute="trailing" constant="16" id="f63-mA-P1N"/>
+                                                <constraint firstItem="wMo-JS-CG6" firstAttribute="leading" secondItem="0jM-v3-rfy" secondAttribute="leading" constant="16" id="mWh-hd-kGo"/>
+                                                <constraint firstItem="wMo-JS-CG6" firstAttribute="top" secondItem="0jM-v3-rfy" secondAttribute="top" constant="8" id="qlU-Iz-TAS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="SiM-f1-CId">
+                                        <rect key="frame" x="0.0" y="113" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SiM-f1-CId" id="P5k-8c-xAl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U1M-9z-uLj">
+                                                    <rect key="frame" x="16" y="8" width="382" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Количество" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-Zh-0U1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Количество товара" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pha-RL-h7q">
+                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U1M-9z-uLj" firstAttribute="leading" secondItem="P5k-8c-xAl" secondAttribute="leading" constant="16" id="alZ-WQ-v42"/>
+                                                <constraint firstAttribute="trailing" secondItem="U1M-9z-uLj" secondAttribute="trailing" constant="16" id="dOf-XI-Psg"/>
+                                                <constraint firstItem="U1M-9z-uLj" firstAttribute="top" secondItem="P5k-8c-xAl" secondAttribute="top" constant="8" id="osd-jP-YHN"/>
+                                                <constraint firstAttribute="bottom" secondItem="U1M-9z-uLj" secondAttribute="bottom" constant="8" id="zUl-pq-s3o"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="rnS-aP-F1f">
+                                        <rect key="frame" x="0.0" y="198" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnS-aP-F1f" id="XSo-f9-bcv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iu1-rv-avH">
+                                                    <rect key="frame" x="16" y="8" width="382" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Магазин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsp-qh-nkZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Название магазина" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZI-XA-977">
+                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iu1-rv-avH" firstAttribute="leading" secondItem="XSo-f9-bcv" secondAttribute="leading" constant="16" id="VDK-H9-CwY"/>
+                                                <constraint firstItem="iu1-rv-avH" firstAttribute="top" secondItem="XSo-f9-bcv" secondAttribute="top" constant="8" id="gft-t0-9OT"/>
+                                                <constraint firstAttribute="trailing" secondItem="iu1-rv-avH" secondAttribute="trailing" constant="16" id="sFU-oo-pBi"/>
+                                                <constraint firstAttribute="bottom" secondItem="iu1-rv-avH" secondAttribute="bottom" constant="8" id="z1g-3a-O0H"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="jO2-8l-iV8">
+                                        <rect key="frame" x="0.0" y="283" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jO2-8l-iV8" id="oUl-pd-5eg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YJE-gp-0yw">
+                                                    <rect key="frame" x="16" y="8" width="382" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Цена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-EI-DgY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Цена в рублях" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-3Q-f3I">
+                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="YJE-gp-0yw" secondAttribute="bottom" constant="8" id="0xj-Nt-u6M"/>
+                                                <constraint firstItem="YJE-gp-0yw" firstAttribute="top" secondItem="oUl-pd-5eg" secondAttribute="top" constant="8" id="nK1-x0-3mE"/>
+                                                <constraint firstItem="YJE-gp-0yw" firstAttribute="leading" secondItem="oUl-pd-5eg" secondAttribute="leading" constant="16" id="neN-1h-9ks"/>
+                                                <constraint firstAttribute="trailing" secondItem="YJE-gp-0yw" secondAttribute="trailing" constant="16" id="oWA-Fx-Uxh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="wLC-3k-hjT">
+                                        <rect key="frame" x="0.0" y="368" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLC-3k-hjT" id="ZPc-I2-ByZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-g5-BOo">
+                                                    <rect key="frame" x="16" y="8" width="382" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Мнение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pN-xW-bKQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Оставить Ваш комментарий" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRp-N2-7g7">
+                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eXR-g5-BOo" firstAttribute="top" secondItem="ZPc-I2-ByZ" secondAttribute="top" constant="8" id="70q-Ow-R7m"/>
+                                                <constraint firstItem="eXR-g5-BOo" firstAttribute="leading" secondItem="ZPc-I2-ByZ" secondAttribute="leading" constant="16" id="Hod-Yf-A0J"/>
+                                                <constraint firstAttribute="bottom" secondItem="eXR-g5-BOo" secondAttribute="bottom" constant="8" id="WnW-JV-d3y"/>
+                                                <constraint firstAttribute="trailing" secondItem="eXR-g5-BOo" secondAttribute="trailing" constant="16" id="ZeF-r0-E3I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="T7s-Jb-5h2" id="Gra-A4-Mhc"/>
+                            <outlet property="delegate" destination="T7s-Jb-5h2" id="MZX-GZ-T22"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Новый чек" id="39W-YG-yoV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Tcv-aj-1M8">
+                            <connections>
+                                <segue destination="Jri-HB-wbM" kind="unwind" unwindAction="cancelAction:" id="FJa-x8-fUc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aPN-GS-Ztk"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F9G-B3-u7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Jri-HB-wbM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1524.6376811594205" y="30.803571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOi-wI-DTB">
@@ -95,6 +292,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5P-Cg-BJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-693" y="31"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lYO-Xr-H5M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oOA-gK-wpS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kf7-3E-j0j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T7s-Jb-5h2" kind="relationship" relationship="rootViewController" id="MK3-F0-6HG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-y5-Mb4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="811.59420289855075" y="32.8125"/>
         </scene>
     </scenes>
 </document>
