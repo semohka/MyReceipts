@@ -14,17 +14,15 @@ struct Receipt {
     var image : String
 
 
-static let myReceipts = [
+static let myShops = [
 "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
 ]
     
-    static func getPlaces() -> [Receipt] {
-        var places = [Receipt]()
-        for receipts in myReceipts {
-            places.append(Receipt(shop: receipts, price: "2000руб.", image: receipts))        }
-        return places
-        
-        
+    static func getReceipts() -> [Receipt] {
+        var receipts = [Receipt]()
+        for shop in myShops {
+            receipts.append(Receipt(shop: shop, price: "2000руб.", image: shop))}
+        return receipts
     }
     
     

@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UITableViewController {
 
     
-    let receipts = Receipt.getPlaces()
+    let receipts = Receipt.getReceipts()
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D0Y-XG-zHY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -83,7 +83,7 @@
         <!--Новый чек-->
         <scene sceneID="DNv-Gd-s73">
             <objects>
-                <tableViewController id="T7s-Jb-5h2" sceneMemberID="viewController">
+                <tableViewController id="T7s-Jb-5h2" customClass="NewReceiptViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFb-tw-7ft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,15 +103,18 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX9-7k-0ev">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
-                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Название товара" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2i-HS-Rvr">
-                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="T7s-Jb-5h2" id="Par-vv-Vx9"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -135,15 +138,18 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Количество" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-Zh-0U1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
-                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Количество товара" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pha-RL-h7q">
-                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="T7s-Jb-5h2" id="vsS-PI-oOk"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -167,15 +173,18 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Магазин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsp-qh-nkZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
-                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Название магазина" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZI-XA-977">
-                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="T7s-Jb-5h2" id="5d8-H0-Ve5"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -199,15 +208,18 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Цена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-EI-DgY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
-                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Цена в рублях" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-3Q-f3I">
-                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="T7s-Jb-5h2" id="l2y-Fd-uzc"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -231,15 +243,18 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Мнение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pN-xW-bKQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33"/>
-                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Оставить Ваш комментарий" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRp-N2-7g7">
-                                                            <rect key="frame" x="0.0" y="41" width="382" height="28"/>
+                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="T7s-Jb-5h2" id="siy-Ae-J9i"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
