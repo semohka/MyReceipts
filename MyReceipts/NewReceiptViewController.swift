@@ -9,82 +9,59 @@
 import UIKit
 
 class NewReceiptViewController: UITableViewController {
+    
+    var newReceipt: Receipt?
 
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var product: UITextField!
+    @IBOutlet weak var count: UITextField!
+    @IBOutlet weak var shop: UITextField!
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var comment: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.tableFooterView = UIView() //убирает разлиновку до конца страницы
+        
+        
+        saveButton.isEnabled = false
+        product.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+//                // MARK: Table view delegate
+//                    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//                            view.endEditing(true)
+//                    }
+    
+    func saveNewReceipt() {
+         newReceipt = Receipt(shop: shop.text!, price: price.text!, myShops: shop.text!)
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+       
+    
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        dismiss(animated: true)
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+// MARK: Text field delegate
+
+extension NewReceiptViewController: UITextFieldDelegate{
+     // скрываем клавиатуру по нажатию на Done
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    @objc private func textFieldChanged() {
+        if product.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        }else {
+            saveButton.isEnabled = false
+        }
+    }
+}
+

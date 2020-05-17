@@ -84,7 +84,7 @@
         <scene sceneID="DNv-Gd-s73">
             <objects>
                 <tableViewController id="T7s-Jb-5h2" customClass="NewReceiptViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFb-tw-7ft">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFb-tw-7ft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -92,7 +92,7 @@
                         <sections>
                             <tableViewSection id="qFP-gC-GoM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="tlf-jZ-N7f">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="tlf-jZ-N7f">
                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tlf-jZ-N7f" id="0jM-v3-rfy">
@@ -127,7 +127,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="SiM-f1-CId">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="SiM-f1-CId">
                                         <rect key="frame" x="0.0" y="113" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SiM-f1-CId" id="P5k-8c-xAl">
@@ -162,7 +162,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="rnS-aP-F1f">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="rnS-aP-F1f">
                                         <rect key="frame" x="0.0" y="198" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnS-aP-F1f" id="XSo-f9-bcv">
@@ -197,7 +197,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="jO2-8l-iV8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="jO2-8l-iV8">
                                         <rect key="frame" x="0.0" y="283" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jO2-8l-iV8" id="oUl-pd-5eg">
@@ -232,7 +232,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="wLC-3k-hjT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="wLC-3k-hjT">
                                         <rect key="frame" x="0.0" y="368" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLC-3k-hjT" id="ZPc-I2-ByZ">
@@ -278,11 +278,23 @@
                     <navigationItem key="navigationItem" title="Новый чек" id="39W-YG-yoV">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Tcv-aj-1M8">
                             <connections>
-                                <segue destination="Jri-HB-wbM" kind="unwind" unwindAction="cancelAction:" id="FJa-x8-fUc"/>
+                                <action selector="cancelAction:" destination="T7s-Jb-5h2" id="kCe-vo-vGD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aPN-GS-Ztk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aPN-GS-Ztk">
+                            <connections>
+                                <segue destination="Jri-HB-wbM" kind="unwind" unwindAction="unwindSegue:" id="mbV-5d-bIt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="comment" destination="GRp-N2-7g7" id="hWq-TB-gpF"/>
+                        <outlet property="count" destination="pha-RL-h7q" id="C0a-ue-bxE"/>
+                        <outlet property="price" destination="vrq-3Q-f3I" id="4M2-HN-zzm"/>
+                        <outlet property="product" destination="Y2i-HS-Rvr" id="d3e-pD-wfI"/>
+                        <outlet property="saveButton" destination="aPN-GS-Ztk" id="NqE-HV-Vwp"/>
+                        <outlet property="shop" destination="OZI-XA-977" id="Ghh-xO-1EC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9G-B3-u7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Jri-HB-wbM" userLabel="Exit" sceneMemberID="exit"/>

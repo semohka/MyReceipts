@@ -6,12 +6,12 @@
 //  Copyright © 2020 Кристина Семкова. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Receipt {
     var shop : String
     var price : String
-    var image : String
+    var myShops : String
 
 
 static let myShops = [
@@ -21,7 +21,7 @@ static let myShops = [
     static func getReceipts() -> [Receipt] {
         var receipts = [Receipt]()
         for shop in myShops {
-            receipts.append(Receipt(shop: shop, price: "2000руб.", image: shop))}
+            receipts.append(Receipt(shop: shop, price: "2000руб.", myShops: shop))}
         return receipts
     }
     

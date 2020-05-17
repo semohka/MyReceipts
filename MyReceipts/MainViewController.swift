@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UITableViewController {
 
     
-    let receipts = Receipt.getReceipts()
+    var receipts = Receipt.getReceipts()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,9 +30,19 @@ class MainViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         // конфигурация ячейки. Является обязательным иначе программа упадет
         
-        cell.shopLabel.text = receipts[indexPath.row].shop
-        cell.priceLabel.text = receipts[indexPath.row].price
-        cell.imageOfStore.image = UIImage(named: receipts[indexPath.row].image)
+        let receipt = receipts[indexPath.row]
+        
+        cell.shopLabel.text = receipt.shop
+        cell.priceLabel.text = receipt.price
+        
+        if receipt.shop == nil {
+             cell.imageOfStore.image = UIImage(named: receipt.myShops)
+        } else {
+            cell.imageOfStore.image = UIImage(named: receipt.shop)
+        }
+        
+       
+        
         cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
         cell.imageOfStore.clipsToBounds = true
         
@@ -50,5 +60,12 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        
+        guard let newReceiptsVC = segue.source as? NewReceiptViewController else { return }
+        
+        newReceiptsVC.saveNewReceipt()
+        receipts.append(newReceiptsVC.newReceipt!)
+        tableView.reloadData()
+    }
 }
