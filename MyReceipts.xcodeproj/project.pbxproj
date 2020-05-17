@@ -17,6 +17,7 @@
 		0EDF249C242BBA84002CD6F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249B242BBA84002CD6F2 /* MainViewController.swift */; };
 		0EDF249E242BEFDA002CD6F2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */; };
 		0EDF24A0242BF5B7002CD6F2 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */; };
+		88B0ADCBA2C3EB4D754857E3 /* Pods_MyReceipts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F89B885DFBDA76156B23019 /* Pods_MyReceipts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		0EDF249B242BBA84002CD6F2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		219D929ED382B552304AFD99 /* Pods-MyReceipts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReceipts.release.xcconfig"; path = "Target Support Files/Pods-MyReceipts/Pods-MyReceipts.release.xcconfig"; sourceTree = "<group>"; };
+		6F89B885DFBDA76156B23019 /* Pods_MyReceipts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyReceipts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF4DF35C2511F3B9D42BB2F0 /* Pods-MyReceipts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReceipts.debug.xcconfig"; path = "Target Support Files/Pods-MyReceipts/Pods-MyReceipts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B0ADCBA2C3EB4D754857E3 /* Pods_MyReceipts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				0EDF2483242BAE2C002CD6F2 /* MyReceipts */,
 				0EDF2482242BAE2C002CD6F2 /* Products */,
+				326010568F0DF34ACAED6756 /* Pods */,
+				EA61EB1ED5FD0D894BC1179B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,24 @@
 			path = MyReceipts;
 			sourceTree = "<group>";
 		};
+		326010568F0DF34ACAED6756 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF4DF35C2511F3B9D42BB2F0 /* Pods-MyReceipts.debug.xcconfig */,
+				219D929ED382B552304AFD99 /* Pods-MyReceipts.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA61EB1ED5FD0D894BC1179B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F89B885DFBDA76156B23019 /* Pods_MyReceipts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EDF2498242BAE33002CD6F2 /* Build configuration list for PBXNativeTarget "MyReceipts" */;
 			buildPhases = (
+				A0E2E08407913C67F8D1C62C /* [CP] Check Pods Manifest.lock */,
 				0EDF247D242BAE2C002CD6F2 /* Sources */,
 				0EDF247E242BAE2C002CD6F2 /* Frameworks */,
 				0EDF247F242BAE2C002CD6F2 /* Resources */,
+				3DC69B82EFAD785AB088CAAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DC69B82EFAD785AB088CAAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyReceipts/Pods-MyReceipts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyReceipts/Pods-MyReceipts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyReceipts/Pods-MyReceipts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E2E08407913C67F8D1C62C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyReceipts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EDF247D242BAE2C002CD6F2 /* Sources */ = {
@@ -298,6 +367,7 @@
 		};
 		0EDF2499242BAE33002CD6F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF4DF35C2511F3B9D42BB2F0 /* Pods-MyReceipts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,6 +385,7 @@
 		};
 		0EDF249A242BAE33002CD6F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 219D929ED382B552304AFD99 /* Pods-MyReceipts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
