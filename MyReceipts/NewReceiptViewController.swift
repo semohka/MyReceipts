@@ -10,7 +10,7 @@ import UIKit
 
 class NewReceiptViewController: UITableViewController {
     
-    var newReceipt: Receipt?
+    var newReceipt = Receipt()
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var product: UITextField!
@@ -36,7 +36,9 @@ class NewReceiptViewController: UITableViewController {
 //                    }
     
     func saveNewReceipt() {
-         newReceipt = Receipt(shop: shop.text!, price: price.text!, myShops: shop.text!)
+        newReceipt = Receipt(value: ["shop": shop.text!, "price": price.text!, "myShops": shop.text!])
+        StorageManager.saveObject(newReceipt)
+        
     }
         
        

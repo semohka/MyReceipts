@@ -36,9 +36,9 @@ class MainViewController: UITableViewController {
         cell.priceLabel.text = receipt.price
         
         if receipt.shop == nil {
-             cell.imageOfStore.image = UIImage(named: receipt.myShops)
+            cell.imageOfStore.image = UIImage(named: receipt.myShops!)
         } else {
-            cell.imageOfStore.image = UIImage(named: receipt.shop)
+            cell.imageOfStore.image = UIImage(named: receipt.shop!)
         }
         
        
@@ -65,7 +65,7 @@ class MainViewController: UITableViewController {
         guard let newReceiptsVC = segue.source as? NewReceiptViewController else { return }
         
         newReceiptsVC.saveNewReceipt()
-        receipts.append(newReceiptsVC.newReceipt!)
+        receipts.append(newReceiptsVC.newReceipt)
         tableView.reloadData()
     }
 }

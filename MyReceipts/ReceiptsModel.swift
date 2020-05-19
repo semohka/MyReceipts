@@ -6,24 +6,27 @@
 //  Copyright © 2020 Кристина Семкова. All rights reserved.
 //
 
-import UIKit
+import RealmSwift
 
-struct Receipt {
-    var shop : String
-    var price : String
-    var myShops : String
+class Receipt: Object {
+    @objc dynamic var shop : String? = ""
+    @objc dynamic var price : String? = ""
+    @objc dynamic var myShops : String? = ""
+//    var imageData : String? = ""
 
+
+    
+    
+    
+    
 
 static let myShops = [
 "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
 ]
     
     static func getReceipts() -> [Receipt] {
-        var receipts = [Receipt]()
-        for shop in myShops {
-            receipts.append(Receipt(shop: shop, price: "2000руб.", myShops: shop))}
-        return receipts
+        let realm = try! Realm()
+        let receipts = realm.objects(Receipt.self)
+        return Array (receipts)
     }
-    
-    
 }

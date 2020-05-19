@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0E17CFA4244C3B1100A19518 /* NewReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */; };
+		0E606F8A2474643F00613D01 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E606F892474643F00613D01 /* StorageManager.swift */; };
 		0EDF2485242BAE2C002CD6F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF2484242BAE2C002CD6F2 /* AppDelegate.swift */; };
 		0EDF2487242BAE2C002CD6F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF2486242BAE2C002CD6F2 /* SceneDelegate.swift */; };
 		0EDF248C242BAE2C002CD6F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDF248A242BAE2C002CD6F2 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReceiptViewController.swift; sourceTree = "<group>"; };
+		0E606F892474643F00613D01 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0EDF2481242BAE2C002CD6F2 /* MyReceipts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyReceipts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDF2484242BAE2C002CD6F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDF2486242BAE2C002CD6F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				0EDF249B242BBA84002CD6F2 /* MainViewController.swift */,
 				0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */,
 				0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */,
+				0E606F892474643F00613D01 /* StorageManager.swift */,
 				0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */,
 				0EDF2486242BAE2C002CD6F2 /* SceneDelegate.swift */,
 				0EDF248A242BAE2C002CD6F2 /* Main.storyboard */,
@@ -92,7 +95,6 @@
 				DF4DF35C2511F3B9D42BB2F0 /* Pods-MyReceipts.debug.xcconfig */,
 				219D929ED382B552304AFD99 /* Pods-MyReceipts.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -226,6 +228,7 @@
 				0EDF2487242BAE2C002CD6F2 /* SceneDelegate.swift in Sources */,
 				0EDF24A0242BF5B7002CD6F2 /* ReceiptsModel.swift in Sources */,
 				0EDF249C242BBA84002CD6F2 /* MainViewController.swift in Sources */,
+				0E606F8A2474643F00613D01 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
