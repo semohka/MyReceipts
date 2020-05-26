@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D0Y-XG-zHY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0tc-m4-iIt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -78,7 +79,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMO-x6-eVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="31.473214285714285"/>
+            <point key="canvasLocation" x="-1764" y="1629"/>
         </scene>
         <!--Новый чек-->
         <scene sceneID="DNv-Gd-s73">
@@ -299,12 +300,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9G-B3-u7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Jri-HB-wbM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1524.6376811594205" y="30.803571428571427"/>
+            <point key="canvasLocation" x="-200" y="1629"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Настройки-->
+        <scene sceneID="EpG-nV-AgD">
+            <objects>
+                <viewController id="c1m-8y-ZU9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y6l-3Y-gj4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xfvxc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1O-Vu-Qhh">
+                                <rect key="frame" x="186" y="438" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="POu-xf-BPz"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Настройки" image="ellipsis" catalog="system" id="dtd-9a-5Hf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQl-RA-RWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-200" y="846"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="axa-FX-O1f">
+            <objects>
+                <viewController id="xqn-SD-5m6" customClass="StatisticsViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8DF-bn-qjW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8Q-ED-4un">
+                                <rect key="frame" x="131" y="111" width="154" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6bW-nX-b4y"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Статистика" image="chart.bar" catalog="system" id="pPX-aJ-eXw"/>
+                    <connections>
+                        <outlet property="resultSum" destination="o8Q-ED-4un" id="MFG-XV-iPb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRQ-Yh-LXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-971.01449275362324" y="845.75892857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nG1-rp-0o7">
+            <objects>
+                <tabBarController id="0tc-m4-iIt" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zsl-n8-om3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="D0Y-XG-zHY" kind="relationship" relationship="viewControllers" id="5fo-60-PLw"/>
+                        <segue destination="xqn-SD-5m6" kind="relationship" relationship="viewControllers" id="Jew-r0-xjT"/>
+                        <segue destination="c1m-8y-ZU9" kind="relationship" relationship="viewControllers" id="2rO-B4-K7P"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKA-Sw-phy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-971" y="48"/>
+        </scene>
+        <!--Все чеки-->
         <scene sceneID="LOi-wI-DTB">
             <objects>
                 <navigationController id="D0Y-XG-zHY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Все чеки" image="pencil.and.ellipsis.rectangle" catalog="system" id="PQg-nO-wHn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DPT-ZX-tyu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -318,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5P-Cg-BJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-693" y="31"/>
+            <point key="canvasLocation" x="-1765" y="846"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lYO-Xr-H5M">
@@ -339,7 +413,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scT-y5-Mb4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811.59420289855075" y="32.8125"/>
+            <point key="canvasLocation" x="-971" y="1629"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart.bar" catalog="system" width="128" height="90"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
+    </resources>
 </document>

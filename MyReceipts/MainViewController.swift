@@ -33,7 +33,7 @@ class MainViewController: UITableViewController {
         let receipt = receipts[indexPath.row]
         
         cell.shopLabel.text = receipt.shop
-        cell.priceLabel.text = receipt.price
+        cell.priceLabel.text = String(receipt.price)
         
         if receipt.shop == nil {
             cell.imageOfStore.image = UIImage(named: receipt.myShops!)
