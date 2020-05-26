@@ -36,7 +36,7 @@ class NewReceiptViewController: UITableViewController {
 //                    }
     
     func saveNewReceipt() {
-        newReceipt = Receipt(value: ["shop": shop.text!, "price": Int(price.text!) ?? 0, "myShops": shop.text!, "count": Int(count.text!) ?? 0])
+        newReceipt = Receipt(value: ["product": product.text!, "shop": shop.text!, "price": Int(price.text!) ?? 0, "myShops": shop.text!, "count": Int(count.text!) ?? 0])
         StorageManager.saveObject(newReceipt)
        
         

@@ -32,6 +32,8 @@ class MainViewController: UITableViewController {
         
         let receipt = receipts[indexPath.row]
         
+        cell.productLabel.text = receipt.product
+        cell.countLabel.text = String(receipt.count)
         cell.shopLabel.text = receipt.shop
         cell.priceLabel.text = String(receipt.price)
         

@@ -9,6 +9,7 @@
 import RealmSwift
 
 class Receipt: Object {
+    @objc dynamic var product : String? = ""
     @objc dynamic var shop : String? = ""
     @objc dynamic var price : Int = 0
     @objc dynamic var myShops : String? = ""

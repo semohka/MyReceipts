@@ -12,6 +12,8 @@ class CustomTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var imageOfStore: UIImageView!
+    @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var shopLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 }
