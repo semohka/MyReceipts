@@ -11,19 +11,19 @@ import UIKit
 class StatisticsViewController: UIViewController {
 
     @IBOutlet weak var resultSum: UILabel!
+    @IBOutlet weak var productSum: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let resultSum: Int =  realm.objects(Receipt.self).sum(ofProperty: "price")
-//        self.resultSum.text = String(resultSum)
-     print("viewDL")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let resultSum: Int =  realm.objects(Receipt.self).sum(ofProperty: "price")
         self.resultSum.text = String(resultSum)
-        print("viewD")
+        
+        let productSum: Int = realm.objects(Receipt.self).sum(ofProperty: "count")
+        self.productSum.text = String(productSum)
     }
     
  

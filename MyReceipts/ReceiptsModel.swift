@@ -14,21 +14,13 @@ class Receipt: Object {
     @objc dynamic var price : Int = 0
     @objc dynamic var myShops : String? = ""
     @objc dynamic var count : Int = 0
-//    var imageData : String? = ""
+    @objc dynamic var comment : String? = ""
 
-
-    
-    
-    
     
 
 static let myShops = [
 "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
 ]
     
-    static func getReceipts() -> [Receipt] {
-        let realm = try! Realm()
-        let receipts = realm.objects(Receipt.self)
-        return Array (receipts)
-    }
+
 }

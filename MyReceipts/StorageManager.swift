@@ -16,4 +16,10 @@ class StorageManager {
             realm.add(receipt)
         }
     }
+    
+    static func deleteObject(_ receipt : Receipt){
+        try! realm.write {
+            realm.delete(receipt)
+        }
+    }
 }

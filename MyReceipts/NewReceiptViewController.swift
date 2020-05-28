@@ -10,6 +10,8 @@ import UIKit
 
 class NewReceiptViewController: UITableViewController {
     
+    var currentReceipt: Receipt?
+    
     var newReceipt = Receipt()
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -28,6 +30,7 @@ class NewReceiptViewController: UITableViewController {
         
         saveButton.isEnabled = false
         product.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        setupEditScreen()
     }
     
 //                // MARK: Table view delegate
@@ -35,15 +38,45 @@ class NewReceiptViewController: UITableViewController {
 //                            view.endEditing(true)
 //                    }
     
-    func saveNewReceipt() {
-        newReceipt = Receipt(value: ["product": product.text!, "shop": shop.text!, "price": Int(price.text!) ?? 0, "myShops": shop.text!, "count": Int(count.text!) ?? 0])
-        StorageManager.saveObject(newReceipt)
-       
+    func saveReceipt() {
+        newReceipt = Receipt(value: ["product": product.text!, "shop": shop.text!, "price": Int(price.text!) ?? 0, "myShops": shop.text!, "count": Int(count.text!) ?? 0, "comment": comment.text!])
+        
+        if currentReceipt != nil {
+            try! realm.write {
+                currentReceipt?.product = newReceipt.product
+                currentReceipt?.count = newReceipt.count
+                currentReceipt?.shop = newReceipt.shop
+                currentReceipt?.price = newReceipt.price
+                currentReceipt?.comment = newReceipt.comment
+            
+            }
+        } else {
+            StorageManager.saveObject(newReceipt)
+        }
         
     }
         
        
+    private func setupEditScreen() {
+        if currentReceipt != nil {
+            setupNavigationBar()
+            product.text = currentReceipt?.product
+            count.text = String(currentReceipt!.count)
+            shop.text = currentReceipt?.shop
+            price.text = String(currentReceipt!.price)
+            comment.text = currentReceipt?.comment
+            
+        }
+    }
     
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentReceipt?.shop
+        saveButton.isEnabled = true
+    }
     
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)

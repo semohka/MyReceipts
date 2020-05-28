@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UITableViewController {
 
+    var receipts: Results<Receipt>!
     
-    var receipts = Receipt.getReceipts()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        receipts = realm.objects(Receipt.self)
     }
 
     // MARK: - Table view data source
@@ -51,23 +52,71 @@ class MainViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let receipt = receipts[indexPath.row]
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
+//            StorageManager.deleteObject(receipt)
+//            self.receipts.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//
+//        }
+//        return [deleteAction]
+//    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let receipt = receipts[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            
+            StorageManager.deleteObject(receipt)
+
+            self.tableView.reloadData()
+
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = UIColor(named: "myRed")
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
+
+            completionHandler(true)
+        }
+        editAction.backgroundColor = UIColor(named: "myGreen")
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
+    
     
 
-    /*
-    // MARK: - Navigation
+    
+//     MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let receipt = receipts[indexPath.row]
+            let newReceiptVC = segue.destination as! NewReceiptViewController
+            newReceiptVC.currentReceipt = receipt
+        }
     }
-    */
+    
+    
+    
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         guard let newReceiptsVC = segue.source as? NewReceiptViewController else { return }
         
-        newReceiptsVC.saveNewReceipt()
-        receipts.append(newReceiptsVC.newReceipt)
+        
+        newReceiptsVC.saveReceipt()
         tableView.reloadData()
+        
     }
 }
