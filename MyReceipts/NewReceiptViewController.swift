@@ -15,21 +15,30 @@ class NewReceiptViewController: UITableViewController {
     var newReceipt = Receipt()
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var product: UITextField!
-    @IBOutlet weak var count: UITextField!
-    @IBOutlet weak var shop: UITextField!
-    @IBOutlet weak var price: UITextField!
-    @IBOutlet weak var comment: UITextField!
+    @IBOutlet weak var productField: UITextField!
+    @IBOutlet weak var countField: UITextField!
+    @IBOutlet weak var shopField: UITextField!
+    @IBOutlet weak var priceField: UITextField!
+    @IBOutlet weak var commentField: UITextField!
+    @IBOutlet weak var countErrorLabel: UILabel!
+    @IBOutlet weak var priceErrorLabel: UILabel!
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        countErrorLabel.isHidden = true
+        priceErrorLabel.isHidden = true
         tableView.tableFooterView = UIView() //убирает разлиновку до конца страницы
         
         
         saveButton.isEnabled = false
-        product.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        productField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        countField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        shopField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        priceField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         setupEditScreen()
     }
     
@@ -38,8 +47,41 @@ class NewReceiptViewController: UITableViewController {
 //                            view.endEditing(true)
 //                    }
     
+    func validateFields() {
+        var isOk = true
+        
+        if countField.text == "" {
+            isOk = false
+        }
+        if countField.text != "" && Int(countField.text!)! == 0 {
+            countErrorLabel.isHidden = false
+            isOk = false
+        }else{
+            countErrorLabel.isHidden = true
+        }
+        
+        if priceField.text == "" {
+            isOk = false
+        }
+        if priceField.text != "" && Int(priceField.text!)! == 0 {
+            priceErrorLabel.isHidden = false
+            isOk = false
+        }else{
+           priceErrorLabel.isHidden = true
+        }
+        
+        if productField.text?.isEmpty == true {
+            isOk = false
+        }
+        
+        
+        saveButton.isEnabled = isOk
+    }
+    
+    
     func saveReceipt() {
-        newReceipt = Receipt(value: ["product": product.text!, "shop": shop.text!, "price": Int(price.text!) ?? 0, "myShops": shop.text!, "count": Int(count.text!) ?? 0, "comment": comment.text!])
+        let finalPrice = Int(countField.text!)! * Int(priceField.text!)!
+        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!])
         
         if currentReceipt != nil {
             try! realm.write {
@@ -60,11 +102,11 @@ class NewReceiptViewController: UITableViewController {
     private func setupEditScreen() {
         if currentReceipt != nil {
             setupNavigationBar()
-            product.text = currentReceipt?.product
-            count.text = String(currentReceipt!.count)
-            shop.text = currentReceipt?.shop
-            price.text = String(currentReceipt!.price)
-            comment.text = currentReceipt?.comment
+            productField.text = currentReceipt?.product
+            countField.text = String(currentReceipt!.count)
+            shopField.text = currentReceipt?.shop
+            priceField.text = String(currentReceipt!.price)
+            commentField.text = currentReceipt?.comment
             
         }
     }
@@ -93,11 +135,7 @@ extension NewReceiptViewController: UITextFieldDelegate{
         return true
     }
     @objc private func textFieldChanged() {
-        if product.text?.isEmpty == false {
-            saveButton.isEnabled = true
-        }else {
-            saveButton.isEnabled = false
-        }
+        validateFields()
     }
 }
 

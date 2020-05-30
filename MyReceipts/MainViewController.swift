@@ -16,6 +16,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = realm.objects(Receipt.self)
+        
     }
 
     // MARK: - Table view data source
@@ -34,9 +35,9 @@ class MainViewController: UITableViewController {
         let receipt = receipts[indexPath.row]
         
         cell.productLabel.text = receipt.product
-        cell.countLabel.text = String(receipt.count)
+        cell.countLabel.text = "\(receipt.count) шт."
         cell.shopLabel.text = receipt.shop
-        cell.priceLabel.text = String(receipt.price)
+        cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
         
         if receipt.shop == nil {
             cell.imageOfStore.image = UIImage(named: receipt.myShops!)

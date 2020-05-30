@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -180,19 +181,25 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Количество" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-Zh-0U1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="27"/>
                                                             <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
                                                             <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Количество товара" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pha-RL-h7q">
-                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
+                                                            <rect key="frame" x="0.0" y="35" width="382" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="T7s-Jb-5h2" id="vsS-PI-oOk"/>
                                                             </connections>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите количество корректно" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg0-r3-W9H">
+                                                            <rect key="frame" x="0.0" y="60" width="382" height="9"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" name="myRed"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -250,19 +257,25 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Цена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-EI-DgY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="27"/>
                                                             <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="23"/>
                                                             <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Цена в рублях" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-3Q-f3I">
-                                                            <rect key="frame" x="0.0" y="44" width="382" height="25"/>
+                                                            <rect key="frame" x="0.0" y="35" width="382" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="T7s-Jb-5h2" id="l2y-Fd-uzc"/>
                                                             </connections>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите цену корректно" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-68-U0W">
+                                                            <rect key="frame" x="0.0" y="60" width="382" height="9"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" name="myRed"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -325,17 +338,19 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="aPN-GS-Ztk">
                             <connections>
-                                <segue destination="Jri-HB-wbM" kind="unwind" unwindAction="unwindSegue:" id="mbV-5d-bIt"/>
+                                <segue destination="Jri-HB-wbM" kind="unwind" unwindAction="unwindSegue:" id="e5h-Sm-VRh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="comment" destination="GRp-N2-7g7" id="hWq-TB-gpF"/>
-                        <outlet property="count" destination="pha-RL-h7q" id="C0a-ue-bxE"/>
-                        <outlet property="price" destination="vrq-3Q-f3I" id="4M2-HN-zzm"/>
-                        <outlet property="product" destination="Y2i-HS-Rvr" id="d3e-pD-wfI"/>
+                        <outlet property="commentField" destination="GRp-N2-7g7" id="hWq-TB-gpF"/>
+                        <outlet property="countErrorLabel" destination="Mg0-r3-W9H" id="uaE-gk-hqW"/>
+                        <outlet property="countField" destination="pha-RL-h7q" id="C0a-ue-bxE"/>
+                        <outlet property="priceErrorLabel" destination="Tmc-68-U0W" id="lyG-ln-Pkw"/>
+                        <outlet property="priceField" destination="vrq-3Q-f3I" id="4M2-HN-zzm"/>
+                        <outlet property="productField" destination="Y2i-HS-Rvr" id="d3e-pD-wfI"/>
                         <outlet property="saveButton" destination="aPN-GS-Ztk" id="NqE-HV-Vwp"/>
-                        <outlet property="shop" destination="OZI-XA-977" id="Ghh-xO-1EC"/>
+                        <outlet property="shopField" destination="OZI-XA-977" id="Ghh-xO-1EC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9G-B3-u7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -525,5 +540,8 @@
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
+        <namedColor name="myRed">
+            <color red="0.58099997043609619" green="0.067000001668930054" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
