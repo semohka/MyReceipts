@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Мои чеки-->
+        <!--Main View Controller-->
         <scene sceneID="kPT-EQ-H0B">
             <objects>
                 <tableViewController id="KDX-8a-7Du" customClass="MainViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,6 +69,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peZ-xl-wq4">
+                                            <rect key="frame" x="15" y="11" width="36" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Dtf-nx-AH4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="27h-pi-0J0" firstAttribute="top" secondItem="DV2-px-Rq3" secondAttribute="bottom" constant="16" id="0zD-Ch-WHD"/>
@@ -80,6 +89,7 @@
                                         <constraint firstItem="fj5-WP-Qg0" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" constant="16" id="K4m-K1-guP"/>
                                         <constraint firstItem="DV2-px-Rq3" firstAttribute="top" secondItem="fj5-WP-Qg0" secondAttribute="bottom" constant="15" id="Mf5-47-wMh"/>
                                         <constraint firstItem="fj5-WP-Qg0" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="8" id="Mg2-TP-Nby"/>
+                                        <constraint firstItem="peZ-xl-wq4" firstAttribute="top" secondItem="AvZ-zZ-iGu" secondAttribute="top" constant="11" id="Np2-cR-YTT"/>
                                         <constraint firstItem="DV2-px-Rq3" firstAttribute="trailing" secondItem="AvZ-zZ-iGu" secondAttribute="trailingMargin" constant="16" id="Oqg-dF-sph"/>
                                         <constraint firstAttribute="bottom" secondItem="27h-pi-0J0" secondAttribute="bottom" constant="10" id="R9Y-HB-kZc"/>
                                         <constraint firstItem="DV2-px-Rq3" firstAttribute="leading" secondItem="Tja-hk-Gjw" secondAttribute="trailing" constant="7" id="Szm-IX-WrM"/>
@@ -93,11 +103,13 @@
                                         <constraint firstItem="fj5-WP-Qg0" firstAttribute="top" secondItem="6S1-TE-fJ6" secondAttribute="bottom" constant="14" id="taD-B5-Lw3"/>
                                         <constraint firstItem="Tja-hk-Gjw" firstAttribute="centerY" secondItem="AvZ-zZ-iGu" secondAttribute="centerY" id="uMu-0x-Whz"/>
                                         <constraint firstItem="27h-pi-0J0" firstAttribute="leading" secondItem="AvZ-zZ-iGu" secondAttribute="leading" constant="97" id="ucG-UY-Mf4"/>
+                                        <constraint firstItem="peZ-xl-wq4" firstAttribute="leading" secondItem="AvZ-zZ-iGu" secondAttribute="leading" constant="15" id="v1J-gV-gkI"/>
                                         <constraint firstItem="DV2-px-Rq3" firstAttribute="top" secondItem="fj5-WP-Qg0" secondAttribute="bottom" constant="15" id="wFv-RG-iA9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="countLabel" destination="fj5-WP-Qg0" id="Ss3-0J-vpm"/>
+                                    <outlet property="dateLabel" destination="peZ-xl-wq4" id="czv-Bk-U8k"/>
                                     <outlet property="imageOfStore" destination="Tja-hk-Gjw" id="FsG-9a-AW6"/>
                                     <outlet property="priceLabel" destination="27h-pi-0J0" id="xiT-Z8-ALw"/>
                                     <outlet property="productLabel" destination="6S1-TE-fJ6" id="hVO-Z1-z6U"/>
@@ -111,7 +123,7 @@
                             <outlet property="delegate" destination="KDX-8a-7Du" id="uBg-cP-ntY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Мои чеки" id="SDD-wS-nut">
+                    <navigationItem key="navigationItem" id="SDD-wS-nut">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7dZ-8b-d0s">
                             <connections>
                                 <segue destination="oOA-gK-wpS" kind="presentation" modalTransitionStyle="flipHorizontal" id="ns0-oH-yko"/>
@@ -361,22 +373,7 @@
         <!--Настройки-->
         <scene sceneID="EpG-nV-AgD">
             <objects>
-                <viewController id="c1m-8y-ZU9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="y6l-3Y-gj4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xfvxc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1O-Vu-Qhh">
-                                <rect key="frame" x="186" y="438" width="41" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="POu-xf-BPz"/>
-                    </view>
+                <viewController id="c1m-8y-ZU9" customClass="SettingsViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Настройки" image="ellipsis" catalog="system" id="dtd-9a-5Hf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQl-RA-RWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

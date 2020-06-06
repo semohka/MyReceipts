@@ -15,7 +15,7 @@ class Receipt: Object {
     @objc dynamic var myShops : String? = ""
     @objc dynamic var count : Int = 0
     @objc dynamic var comment : String? = ""
-
+    @objc dynamic var date = Date()
     
 
 static let myShops = [

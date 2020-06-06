@@ -16,4 +16,5 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var shopLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 }

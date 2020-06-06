@@ -8,16 +8,24 @@
 
 import UIKit
 import RealmSwift
+import SwiftUI
 
 class MainViewController: UITableViewController {
 
     var receipts: Results<Receipt>!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = realm.objects(Receipt.self)
+        title = UserDefaults.standard.string(forKey: "Tap")
         
     }
+    
+    
+    
+  
+    
 
     // MARK: - Table view data source
 
@@ -38,6 +46,11 @@ class MainViewController: UITableViewController {
         cell.countLabel.text = "\(receipt.count) шт."
         cell.shopLabel.text = receipt.shop
         cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        
+        cell.dateLabel.text = dateFormatter.string(from: receipt.date)
         
         if receipt.shop == nil {
             cell.imageOfStore.image = UIImage(named: receipt.myShops!)
@@ -73,9 +86,18 @@ class MainViewController: UITableViewController {
         let receipt = receipts[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
             
+            
+            //            0 извлечь из юзер дефолтс значение
+            var extraction = UserDefaults.standard.integer(forKey: "Tap")
+            //            1 к цене за месяц прибавить цену удаленного товара
+            extraction += receipt.price
+            //            2 обновить цену которая находится в юзер дефолтс
+            UserDefaults.standard.set(extraction, forKey: "Tap")
+            
             StorageManager.deleteObject(receipt)
 
             self.tableView.reloadData()
+            self.title = String(extraction)
 
             completionHandler(true)
         }
@@ -118,6 +140,8 @@ class MainViewController: UITableViewController {
         
         newReceiptsVC.saveReceipt()
         tableView.reloadData()
+        self.title = UserDefaults.standard.string(forKey: "Tap")
         
     }
+ 
 }

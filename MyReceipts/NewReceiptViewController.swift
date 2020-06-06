@@ -81,6 +81,10 @@ class NewReceiptViewController: UITableViewController {
     
     func saveReceipt() {
         let finalPrice = Int(countField.text!)! * Int(priceField.text!)!
+        let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
+        UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
+        
+        
         newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!])
         
         if currentReceipt != nil {
