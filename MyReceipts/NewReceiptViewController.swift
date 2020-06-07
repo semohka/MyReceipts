@@ -10,9 +10,9 @@ import UIKit
 
 class NewReceiptViewController: UITableViewController {
     
-    var currentReceipt: Receipt?
+    var currentReceipt: Receipt? //в преременной лежит объект класса Ресеипт, либо нил. Поэтому в единРесеипт мы проверяем на нил
     
-    var newReceipt = Receipt()
+    var newReceipt = Receipt() //объект класса Ресеипт (проинициализированный)
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var productField: UITextField!
@@ -84,32 +84,37 @@ class NewReceiptViewController: UITableViewController {
         let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
         UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
         
+        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!]) // заполнение объекта чека
         
-        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!])
+        editReceipt() //нужно вызывать после создания нового чека, иначе продтягивается пустой объект классе есеипт
+        if currentReceipt == nil {
+            StorageManager.saveObject(newReceipt) //название класса у которого вызывается статическая функция
+        }
         
-        if currentReceipt != nil {
-            try! realm.write {
-                currentReceipt?.product = newReceipt.product
+    }
+    
+    func editReceipt() {
+        if currentReceipt != nil { //редактируемый чек существует (объект)
+            try! realm.write { //происходит перезапись в базу данных. Обновление текущего чека по объекту ниже (экземпляр класса Ресеипт)
+                currentReceipt?.product = newReceipt.product //экземпляр класса с его свойствами которому присваиваем новое значение
                 currentReceipt?.count = newReceipt.count
                 currentReceipt?.shop = newReceipt.shop
                 currentReceipt?.price = newReceipt.price
                 currentReceipt?.comment = newReceipt.comment
             
             }
-        } else {
-            StorageManager.saveObject(newReceipt)
         }
-        
     }
-        
-       
-    private func setupEditScreen() {
-        if currentReceipt != nil {
+    
+    private func setupEditScreen() { //
+        if currentReceipt != nil { //объект редактирования чека не нил, инициализируем текстовые поля
             setupNavigationBar()
             productField.text = currentReceipt?.product
             countField.text = String(currentReceipt!.count)
             shopField.text = currentReceipt?.shop
-            priceField.text = String(currentReceipt!.price)
+            if currentReceipt!.count != 0 {
+              priceField.text = String(currentReceipt!.price/currentReceipt!.count)
+            }
             commentField.text = currentReceipt?.comment
             
         }

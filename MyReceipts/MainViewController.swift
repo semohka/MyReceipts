@@ -45,7 +45,12 @@ class MainViewController: UITableViewController {
         cell.productLabel.text = receipt.product
         cell.countLabel.text = "\(receipt.count) шт."
         cell.shopLabel.text = receipt.shop
-        cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
+        if receipt.count != 0 {
+            cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
+        } else {
+            cell.priceLabel.text = "Количество не может быть равно нулю"
+        }
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
