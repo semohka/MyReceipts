@@ -18,8 +18,8 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = realm.objects(Receipt.self)
-        title = UserDefaults.standard.string(forKey: "Tap")
-        
+//        title = UserDefaults.standard.string(forKey: "Tap")
+        title = "Мои чеки"
     }
     
     
@@ -108,14 +108,27 @@ class MainViewController: UITableViewController {
         }
         deleteAction.backgroundColor = UIColor(named: "myRed")
         
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
-
-            completionHandler(true)
-        }
-        editAction.backgroundColor = UIColor(named: "myGreen")
         
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        
+        
+//        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
+//            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+//            let redViewController = mainStoryBoard.instantiateViewController(withIdentifier: "NewReceiptViewController") as! NewReceiptViewController
+//            redViewController.currentReceipt = receipt
+//            redViewController.modalPresentationStyle = .fullScreen
+//            self.present(redViewController, animated: true, completion: nil)
+//
+//            completionHandler(true)
+//        }
+//        editAction.backgroundColor = UIColor(named: "myGreen")
+        
+        
+        
+        
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
@@ -133,6 +146,7 @@ class MainViewController: UITableViewController {
             let receipt = receipts[indexPath.row]
             let newReceiptVC = segue.destination as! NewReceiptViewController
             newReceiptVC.currentReceipt = receipt
+            
         }
     }
     
@@ -145,7 +159,7 @@ class MainViewController: UITableViewController {
         
         newReceiptsVC.saveReceipt()
         tableView.reloadData()
-        self.title = UserDefaults.standard.string(forKey: "Tap")
+//        self.title = UserDefaults.standard.string(forKey: "Tap")
         
     }
  

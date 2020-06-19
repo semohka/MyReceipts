@@ -106,7 +106,7 @@ class NewReceiptViewController: UITableViewController {
         }
     }
     
-    private func setupEditScreen() { //
+    private func setupEditScreen() { 
         if currentReceipt != nil { //объект редактирования чека не нил, инициализируем текстовые поля
             setupNavigationBar()
             productField.text = currentReceipt?.product

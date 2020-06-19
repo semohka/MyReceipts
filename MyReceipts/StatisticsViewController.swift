@@ -10,6 +10,9 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
 
+    
+    @IBOutlet weak var amountMoneyOfMonthLabel: UILabel!
+    @IBOutlet weak var balanceMoneyOfMonthLabel: UILabel!
     @IBOutlet weak var resultSum: UILabel!
     @IBOutlet weak var productSum: UILabel!
     
@@ -19,6 +22,11 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+       
+        self.amountMoneyOfMonthLabel.text = UserDefaults.standard.string(forKey: "AmountOfMonth") ?? "Сумма на месяц не введена"
+        self.balanceMoneyOfMonthLabel.text = UserDefaults.standard.string(forKey: "Tap")
+        
         let resultSum: Int =  realm.objects(Receipt.self).sum(ofProperty: "price")
         self.resultSum.text = String(resultSum)
         

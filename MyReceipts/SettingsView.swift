@@ -30,6 +30,7 @@ struct SettingsView: View {
                         HStack {
                             TextField ("Введите сумму", text: $amountMoney)
                             Button(action: {
+                                UserDefaults.standard.set(self.amountMoney, forKey: "AmountOfMonth")
                                 UserDefaults.standard.set(self.amountMoney, forKey: "Tap")
                                 self.hideKeyboard()
                             })
