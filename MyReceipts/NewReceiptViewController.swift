@@ -8,16 +8,33 @@
 
 import UIKit
 
-class NewReceiptViewController: UITableViewController {
+class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataSource.count
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        shopField.text = dataSource[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dataSource[row]
+    }
+    
     
     var currentReceipt: Receipt? //в преременной лежит объект класса Ресеипт, либо нил. Поэтому в единРесеипт мы проверяем на нил
     
     var newReceipt = Receipt() //объект класса Ресеипт (проинициализированный)
 
+    private let dataSource = ["ВкусВилл","Дикси","Пятерочка","Карусель","Лента","Ларек"]
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var productField: UITextField!
     @IBOutlet weak var countField: UITextField!
     @IBOutlet weak var shopField: UITextField!
+    @IBOutlet weak var shopPickerViewField: UIPickerView!
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var countErrorLabel: UILabel!
@@ -37,9 +54,12 @@ class NewReceiptViewController: UITableViewController {
         saveButton.isEnabled = false
         productField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         countField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        shopPickerViewField.dataSource = self
+        shopPickerViewField.delegate = self
         shopField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         priceField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         setupEditScreen()
+        //для валидации: чтобы обработать данные в текстовом поле
     }
     
 //                // MARK: Table view delegate
@@ -80,6 +100,8 @@ class NewReceiptViewController: UITableViewController {
     
     
     func saveReceipt() {
+//        saveReceipt(price: countField.text!, product: productField.text!)
+        
         let finalPrice = Int(countField.text!)! * Int(priceField.text!)!
         let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
         UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
@@ -92,6 +114,13 @@ class NewReceiptViewController: UITableViewController {
         }
         
     }
+    
+    
+//    func saveReceipt(price: String, product: String) {
+//
+//    } для тестов необходимо передавать параметры в методах. А не обращаться к аутлетам в теле метода. Но пока не стоит это трогать, так как там привязан вигвей.
+    
+    
     
     func editReceipt() {
         if currentReceipt != nil { //редактируемый чек существует (объект)

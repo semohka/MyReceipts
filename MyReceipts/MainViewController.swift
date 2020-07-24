@@ -18,8 +18,8 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = realm.objects(Receipt.self)
-//        title = UserDefaults.standard.string(forKey: "Tap")
-        title = "Мои чеки"
+//        StorageManager.testReceipts()
+        title = "Все покупки"
     }
     
     
