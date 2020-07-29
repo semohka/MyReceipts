@@ -28,8 +28,6 @@ class StatisticsViewController: UIViewController {
     
     
     
-    //необходимо сдеалть так, чтобы у каждого текстФиелд был свой пикер
-    
     
     
     
@@ -105,6 +103,8 @@ class StatisticsViewController: UIViewController {
     }
     
  
+    
+    
 
     /*
     // MARK: - Navigation
@@ -115,5 +115,19 @@ class StatisticsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectProduct" {
+
+            let newVC = segue.destination as! UINavigationController
+            let targetController = newVC.topViewController as? ProductTable
+            targetController!.statistic = self
+            
+            
+
+        }
+    }
+    
+    
 
 }

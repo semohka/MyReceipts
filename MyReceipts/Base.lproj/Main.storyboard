@@ -148,7 +148,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="NewReceiptViewController" id="T7s-Jb-5h2" customClass="NewReceiptViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFb-tw-7ft">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -595,7 +595,7 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Pgl-wJ-GIS" kind="presentation" id="5gi-nA-vde"/>
+                                    <segue destination="CUw-LT-OBB" kind="presentation" identifier="selectProduct" id="cNb-HW-6Zo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -719,39 +719,62 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scT-y5-Mb4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530" y="1629"/>
+            <point key="canvasLocation" x="-1546" y="1629"/>
         </scene>
-        <!--Product Table-->
-        <scene sceneID="Sky-jf-csn">
+        <!--Root View Controller-->
+        <scene sceneID="Pb7-3F-NAf">
             <objects>
-                <tableViewController id="Pgl-wJ-GIS" customClass="ProductTable" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hjb-jf-pc7">
+                <tableViewController id="0EQ-0T-uQR" customClass="ProductTable" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i17-R1-4jU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell" id="3ds-Bv-g2Y">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="wGq-TF-teB">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ds-Bv-g2Y" id="BTd-b0-GUh">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wGq-TF-teB" id="dBc-2j-rPi">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Pgl-wJ-GIS" id="QF0-08-iQL"/>
-                            <outlet property="delegate" destination="Pgl-wJ-GIS" id="wWh-hG-mfH"/>
+                            <outlet property="dataSource" destination="0EQ-0T-uQR" id="gRc-rp-0Ks"/>
+                            <outlet property="delegate" destination="0EQ-0T-uQR" id="ens-4g-WDn"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="BOP-ky-1JW">
+                        <barButtonItem key="rightBarButtonItem" title="Выбрать" style="plain" id="Inl-xg-fmY">
+                            <connections>
+                                <action selector="saveButton:" destination="0EQ-0T-uQR" id="ePU-wl-NiH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ay-Rr-Su4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFy-Xb-XPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="1627"/>
+            <point key="canvasLocation" x="-158" y="1629"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r4B-z5-cmu">
+            <objects>
+                <navigationController id="CUw-LT-OBB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U5b-76-dHt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0EQ-0T-uQR" kind="relationship" relationship="rootViewController" id="Rpa-c6-qmp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obJ-h7-eWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-872" y="1629"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z5v-ck-bew"/>
+        <segue reference="MK3-F0-6HG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BGReceipt" width="401" height="144"/>
