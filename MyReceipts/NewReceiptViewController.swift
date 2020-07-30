@@ -39,7 +39,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var countErrorLabel: UILabel!
     @IBOutlet weak var priceErrorLabel: UILabel!
-    
+    @IBOutlet weak var primaryPrice: UITextField!
     
     
     
@@ -58,6 +58,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         shopPickerViewField.delegate = self
         shopField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         priceField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+//        primaryPrice.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         setupEditScreen()
         //для валидации: чтобы обработать данные в текстовом поле
     }
@@ -106,7 +107,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
         UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
         
-        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!]) // заполнение объекта чека
+        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!, "primaryPrice": priceField.text!]) // заполнение объекта чека
         
         editReceipt() //нужно вызывать после создания нового чека, иначе продтягивается пустой объект классе есеипт
         if currentReceipt == nil {

@@ -17,6 +17,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var shopLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var primaryPrice: UILabel!
     var myBG = "BGReceipt"
 }

@@ -16,7 +16,7 @@ class Receipt: Object {
     @objc dynamic var count : Int = 0
     @objc dynamic var comment : String? = ""
     @objc dynamic var date : Date = Date()
-    
+    @objc dynamic var primaryPrice : Int = 0
 
 static let myShops = [
 "ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"

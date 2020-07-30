@@ -21,6 +21,10 @@ class StatisticsViewController: UIViewController {
     
     @IBOutlet weak var statisticTableField: UITextField!
     
+    @IBAction func navToDetailStatistic(_ sender: Any) {
+    }
+    
+    
     let datePickerStart = UIDatePicker()
     let datePickerFinish = UIDatePicker()
     
@@ -36,9 +40,7 @@ class StatisticsViewController: UIViewController {
         startTimeField.inputView = datePickerStart
         finishTimeField.inputView = datePickerFinish
         
-//        statisticTableField.inputView = statisticAllTable
-    
-        
+
         datePickerStart.datePickerMode = .date
 //        let localeID = Locale.preferredLanguages.first //чтобы не писать эти 2 строчки и не изменять в настройках телефона язык, можно в разделе инфо изменить Localization native development region
 //        datePickerStart.locale = Locale(identifier: localeID!)
@@ -47,10 +49,10 @@ class StatisticsViewController: UIViewController {
 //        let localeID = Locale.preferredLanguages.first
 //        datePickerFinish.locale = Locale(identifier: localeID!)
         
-//        statisticAllTable.tableView =
+
         
         let toolbarStart = UIToolbar()
-        let toolbarFinish = UIToolbar()//кнопка "готово" далее параметры кнопки
+        let toolbarFinish = UIToolbar()//кнопка "готово". далее параметры кнопки
         toolbarStart.sizeToFit()
         toolbarFinish.sizeToFit()
         let doneBottonStart = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneActionStart))
@@ -62,15 +64,14 @@ class StatisticsViewController: UIViewController {
         startTimeField.inputAccessoryView = toolbarStart
         finishTimeField.inputAccessoryView = toolbarFinish
         
-        
-
-        
     }
 
+    
     @objc func doneActionStart() {
         getDateFromPickerStart() //вызыв функуции
         view.endEditing(true)//закрывам датеПикер после ввода даты
     }
+    
      @objc func doneActionFinish() {
         getDateFromPickerFinish()
         view.endEditing(true)
@@ -105,29 +106,24 @@ class StatisticsViewController: UIViewController {
  
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectProduct" {
 
             let newVC = segue.destination as! UINavigationController
             let targetController = newVC.topViewController as? ProductTable
             targetController!.statistic = self
-            
-            
+        }
+        
+        if segue.identifier == "navToDetailStatistic" {
+
+            let newVC = segue.destination as! UINavigationController
+            let targetController = newVC.topViewController as? DetailStatisticViewController
+            targetController?.selectedProduct = self.statisticTableField.text!
 
         }
     }
     
+
     
 
 }

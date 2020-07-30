@@ -45,6 +45,7 @@ class MainViewController: UITableViewController {
         cell.productLabel.text = receipt.product
         cell.countLabel.text = "\(receipt.count) шт."
         cell.shopLabel.text = receipt.shop
+//        cell.primaryPrice.text = String(receipt.price)
         if receipt.count != 0 {
             cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
         } else {

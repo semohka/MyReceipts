@@ -25,13 +25,13 @@ class StorageManager {
 
 
         
-        for i in 0...1000{
-            let counts = Int.random(in: 1 ... 4)
+        for i in 0...30{
+            let counts = Int.random(in: 1 ... 3)
             let price = Int.random(in: 50 ... 300)
             let finalPrice = counts * price
             let randomDate = Date.randomBetween(start: "2020-01-01", end: "2020-07-20", format: "yyyy-MM-dd")//сюда передаем параметры
             let randommDate = Date.parse(randomDate, format: "yyyy-MM-dd")
-            let newReceipt = Receipt(value: ["product": products.randomElement()!, "shop": shops.randomElement()!, "price": finalPrice, "myShops": "ВкусВилл", "count": counts, "comment": "Комментарий \(i)", "date": randommDate])
+            let newReceipt = Receipt(value: ["product": products.randomElement()!, "shop": shops.randomElement()!, "price": finalPrice, "myShops": "ВкусВилл", "count": counts, "comment": "Комментарий \(i)", "date": randommDate, "primaryPrice": price])
             
             saveObject(newReceipt)
             
