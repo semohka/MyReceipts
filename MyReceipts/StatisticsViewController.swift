@@ -31,14 +31,14 @@ class StatisticsViewController: UIViewController {
     let statisticAllTable = UITableViewController()
     
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        datePickerStart.date =
+        datePickerFinish.date = Date()
         startTimeField.inputView = datePickerStart
         finishTimeField.inputView = datePickerFinish
+        
+        getDateFromPickerFinish()
         
 
         datePickerStart.datePickerMode = .date
@@ -119,7 +119,9 @@ class StatisticsViewController: UIViewController {
             let newVC = segue.destination as! UINavigationController
             let targetController = newVC.topViewController as? DetailStatisticViewController
             targetController?.selectedProduct = self.statisticTableField.text!
-
+            
+            targetController?.startTime = Date.parse(startTimeField.text!, format: "dd.MM.yyyy")
+            targetController?.finishTime = Date.parse(finishTimeField.text!, format: "dd.MM.yyyy")
         }
     }
     

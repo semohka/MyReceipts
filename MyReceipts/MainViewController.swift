@@ -17,7 +17,8 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        receipts = realm.objects(Receipt.self)
+        receipts = realm.objects(Receipt.self).sorted(byKeyPath: "date", ascending: false)
+        
 //        StorageManager.testReceipts()
         title = "Все покупки"
     }

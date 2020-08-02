@@ -36,7 +36,7 @@ class ProductTable: UITableViewController, UISearchResultsUpdating, UISearchBarD
     
 
     
-    var statistic: StatisticsViewController?
+    weak var statistic: StatisticsViewController?
     var products: Results<Receipt>! //массив в котором соджержится тип чеков
     
     

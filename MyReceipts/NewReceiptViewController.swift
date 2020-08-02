@@ -107,7 +107,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
         UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
         
-        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!, "primaryPrice": priceField.text!]) // заполнение объекта чека
+        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!, "primaryPrice": Int(priceField.text!)!]) // заполнение объекта чека
         
         editReceipt() //нужно вызывать после создания нового чека, иначе продтягивается пустой объект классе есеипт
         if currentReceipt == nil {
