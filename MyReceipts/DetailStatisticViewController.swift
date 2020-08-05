@@ -38,11 +38,52 @@ class DetailStatisticViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         allPrice()
-        title = selectedProduct
+        self.navigationItem.titleView = setTitle(title: selectedProduct, subtitle: "\(formatterTime(date: startTime)) - \(formatterTime(date: finishTime))")
+        
         textColor(color: .white)
+        
+    }
+    
+    func setTitle(title:String, subtitle:String) -> UIView {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: -2, width: 0, height: 0))
+
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.text = title
+        titleLabel.sizeToFit()
+
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subtitleLabel.backgroundColor = UIColor.clear
+        subtitleLabel.textColor = UIColor.black
+        subtitleLabel.font = UIFont.systemFont(ofSize: 15)
+        subtitleLabel.text = subtitle
+        subtitleLabel.sizeToFit()
+
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(subtitleLabel)
+
+        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
+
+        if widthDiff < 0 {
+            let newX = widthDiff / 2
+            subtitleLabel.frame.origin.x = abs(newX)
+        } else {
+            let newX = widthDiff / 2
+            titleLabel.frame.origin.x = newX
+        }
+
+        return titleView
     }
     
     
+    
+    func formatterTime(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yy"
+        return formatter.string(from: date)
+    }
     
     func textColor(color: UIColor) {
         minPriceLabel.textColor = color
@@ -58,8 +99,8 @@ class DetailStatisticViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         
         if !isBackgroundAdded {
-            let colorLeft = UIColor(red: 0.25, green: 0.37, blue: 0.98, alpha: 0.8)
-            let colorRight = UIColor(red: 0.99, green: 0.27, blue: 0.42, alpha: 0.8)
+            let colorLeft = UIColor(red: 0.05, green: 0.48, blue: 0.70, alpha: 0.8)
+            let colorRight = UIColor(red: 0.69, green: 0.39, blue: 0.50, alpha: 1.00)
             print("layout")
             stackViewMin.addBackground(colorLeft)
             stackViewMid.addBackgroundGradiant(color1: colorLeft, color2: colorRight)
@@ -140,11 +181,6 @@ extension UIStackView {
         view.layer.shadowRadius = 3
     }
 }
-
-
-
-
-
 
 
 

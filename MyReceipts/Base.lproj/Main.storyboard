@@ -229,11 +229,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="105" id="rnS-aP-F1f">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="105" id="rnS-aP-F1f">
                                         <rect key="frame" x="0.0" y="218" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnS-aP-F1f" id="XSo-f9-bcv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="K3x-I3-BMF">
@@ -258,7 +258,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuD-cF-Jsn">
-                                                    <rect key="frame" x="207" y="32" width="187" height="73"/>
+                                                    <rect key="frame" x="207" y="32" width="156" height="73"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -583,23 +583,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EsH-3P-fFy">
-                                <rect key="frame" x="15" y="493" width="285" height="34"/>
+                                <rect key="frame" x="15" y="493" width="322" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvy-RX-ec9">
-                                <rect key="frame" x="275" y="493" width="25" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&gt;">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="CUw-LT-OBB" kind="presentation" identifier="selectProduct" id="cNb-HW-6Zo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahp-YY-wKI">
-                                <rect key="frame" x="293" y="493" width="65" height="30"/>
+                                <rect key="frame" x="175" y="545" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Далее">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -607,6 +597,16 @@
                                 <connections>
                                     <action selector="navToDetailStatistic:" destination="xqn-SD-5m6" eventType="touchUpInside" id="5AQ-Ks-Z9B"/>
                                     <segue destination="tOS-Ct-mKM" kind="presentation" identifier="navToDetailStatistic" id="k5q-ri-90Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvy-RX-ec9">
+                                <rect key="frame" x="241" y="494" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CUw-LT-OBB" kind="presentation" identifier="selectProduct" id="cNb-HW-6Zo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -732,7 +732,7 @@
             </objects>
             <point key="canvasLocation" x="-1546" y="1629"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Выберите товар-->
         <scene sceneID="Pb7-3F-NAf">
             <objects>
                 <tableViewController id="0EQ-0T-uQR" customClass="ProductTable" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -755,7 +755,7 @@
                             <outlet property="delegate" destination="0EQ-0T-uQR" id="ens-4g-WDn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BOP-ky-1JW">
+                    <navigationItem key="navigationItem" title="Выберите товар" id="BOP-ky-1JW">
                         <barButtonItem key="rightBarButtonItem" title="Выбрать" style="plain" id="Inl-xg-fmY">
                             <connections>
                                 <action selector="saveButton:" destination="0EQ-0T-uQR" id="ePU-wl-NiH"/>
@@ -783,7 +783,7 @@
             </objects>
             <point key="canvasLocation" x="-872" y="1629"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Выбранный товар-->
         <scene sceneID="SAl-F3-AwG">
             <objects>
                 <tableViewController id="dKf-mF-Y84" customClass="DetailStatisticViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -1242,7 +1242,7 @@
                             <outlet property="delegate" destination="dKf-mF-Y84" id="VO6-9k-Whu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="FqL-tE-ds6"/>
+                    <navigationItem key="navigationItem" title="Выбранный товар" id="FqL-tE-ds6"/>
                     <connections>
                         <outlet property="maxLabel" destination="p6F-SW-Bq8" id="3GY-3h-pkp"/>
                         <outlet property="maxPriceLabel" destination="cn9-4N-1Jk" id="Nmk-l5-JJk"/>

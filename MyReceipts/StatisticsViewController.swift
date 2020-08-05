@@ -33,12 +33,16 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        datePickerStart.date =
+        
+        datePickerStart.date = Calendar.current.date(byAdding: .month, value: -1, to: datePickerFinish.date)!
         datePickerFinish.date = Date()
+
         startTimeField.inputView = datePickerStart
         finishTimeField.inputView = datePickerFinish
         
+        getDateFromPickerStart()
         getDateFromPickerFinish()
+        
         
 
         datePickerStart.datePickerMode = .date
