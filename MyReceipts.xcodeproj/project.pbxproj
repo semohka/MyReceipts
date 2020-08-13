@@ -24,6 +24,8 @@
 		0EDF249C242BBA84002CD6F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249B242BBA84002CD6F2 /* MainViewController.swift */; };
 		0EDF249E242BEFDA002CD6F2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */; };
 		0EDF24A0242BF5B7002CD6F2 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */; };
+		0EF16D2124DC0253007C8B2D /* PriceToShopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF16D2024DC0253007C8B2D /* PriceToShopViewCell.swift */; };
+		0EF16D2524DD5C51007C8B2D /* InsideDetailStatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF16D2424DD5C51007C8B2D /* InsideDetailStatisticTableViewCell.swift */; };
 		88B0ADCBA2C3EB4D754857E3 /* Pods_MyReceipts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F89B885DFBDA76156B23019 /* Pods_MyReceipts.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		0EDF249B242BBA84002CD6F2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		0EF16D2024DC0253007C8B2D /* PriceToShopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceToShopViewCell.swift; sourceTree = "<group>"; };
+		0EF16D2424DD5C51007C8B2D /* InsideDetailStatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideDetailStatisticTableViewCell.swift; path = /Users/kristinasemkova/Projects/MyReceipts/MyReceipts/InsideDetailStatisticTableViewCell.swift; sourceTree = "<absolute>"; };
 		219D929ED382B552304AFD99 /* Pods-MyReceipts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReceipts.release.xcconfig"; path = "Target Support Files/Pods-MyReceipts/Pods-MyReceipts.release.xcconfig"; sourceTree = "<group>"; };
 		6F89B885DFBDA76156B23019 /* Pods_MyReceipts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyReceipts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4DF35C2511F3B9D42BB2F0 /* Pods-MyReceipts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReceipts.debug.xcconfig"; path = "Target Support Files/Pods-MyReceipts/Pods-MyReceipts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,10 +94,12 @@
 				0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */,
 				0E02886F24BDC44200D91EE8 /* Chart.swift */,
 				0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */,
+				0EF16D2424DD5C51007C8B2D /* InsideDetailStatisticTableViewCell.swift */,
 				0E606F892474643F00613D01 /* StorageManager.swift */,
 				0EDF249D242BEFDA002CD6F2 /* CustomTableViewCell.swift */,
 				0EDF2486242BAE2C002CD6F2 /* SceneDelegate.swift */,
 				0EDF248A242BAE2C002CD6F2 /* Main.storyboard */,
+				0EF16D2024DC0253007C8B2D /* PriceToShopViewCell.swift */,
 				0ECB869824D1B7A300FA5407 /* DetailStatisticViewController.swift */,
 				0E8614F224856C3500B2A89C /* SettingsViewController.swift */,
 				0EDF2490242BAE33002CD6F2 /* Assets.xcassets */,
@@ -252,7 +258,9 @@
 				0E2DEE42247BDDED00482CD6 /* StatisticsViewController.swift in Sources */,
 				0ECB869924D1B7A300FA5407 /* DetailStatisticViewController.swift in Sources */,
 				0EDF249C242BBA84002CD6F2 /* MainViewController.swift in Sources */,
+				0EF16D2524DD5C51007C8B2D /* InsideDetailStatisticTableViewCell.swift in Sources */,
 				0E606F8A2474643F00613D01 /* StorageManager.swift in Sources */,
+				0EF16D2124DC0253007C8B2D /* PriceToShopViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

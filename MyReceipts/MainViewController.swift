@@ -17,7 +17,7 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        receipts = realm.objects(Receipt.self).sorted(byKeyPath: "date", ascending: false)
+        receipts = realm.objects(Receipt.self).sorted(byKeyPath: "date", ascending: false) // сортировка по дате, по убыванию
         
 //        StorageManager.testReceipts()
         title = "Все покупки"
@@ -46,7 +46,7 @@ class MainViewController: UITableViewController {
         cell.productLabel.text = receipt.product
         cell.countLabel.text = "\(receipt.count) шт."
         cell.shopLabel.text = receipt.shop
-//        cell.primaryPrice.text = String(receipt.price)
+        
         if receipt.count != 0 {
             cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
         } else {
@@ -161,7 +161,7 @@ class MainViewController: UITableViewController {
         
         newReceiptsVC.saveReceipt()
         tableView.reloadData()
-//        self.title = UserDefaults.standard.string(forKey: "Tap")
+
         
     }
  

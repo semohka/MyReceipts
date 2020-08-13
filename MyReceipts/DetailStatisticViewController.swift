@@ -11,10 +11,8 @@ import RealmSwift
 
 class DetailStatisticViewController: UITableViewController {
     
-    
     var isBackgroundAdded = false
-    
-    
+
     @IBOutlet weak var minPriceLabel: UILabel!
     @IBOutlet weak var maxPriceLabel: UILabel!
     @IBOutlet weak var midPriceLabel: UILabel!
@@ -29,15 +27,19 @@ class DetailStatisticViewController: UITableViewController {
     @IBOutlet weak var stackViewMid: UIStackView!
     @IBOutlet weak var stackViewMax: UIStackView!
     
+    @IBOutlet weak var priceShopLabel: UILabel!
+    @IBOutlet weak var boughtProductLabel: UILabel!
     
     var selectedProduct: String = ""
     var startTime: Date = Date()
     var finishTime: Date = Date()
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         allPrice()
+        priceOfShop()
+        buyProduct()
         self.navigationItem.titleView = setTitle(title: selectedProduct, subtitle: "\(formatterTime(date: startTime)) - \(formatterTime(date: finishTime))")
         
         textColor(color: .white)
@@ -110,11 +112,6 @@ class DetailStatisticViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    
     func allPrice() {
         let minPrice: Int? = realm.objects(Receipt.self)
             .filter("product == %@", selectedProduct)
@@ -139,6 +136,62 @@ class DetailStatisticViewController: UITableViewController {
         }
         
     }
+    
+//    вывод мин и макс цен по продукту за указанный период с группировкой по магазинам
+    func priceOfShop (){
+        let shops = realm.objects(Receipt.self).distinct(by: ["shop"])//дистинкт это уникальные магазины
+        for shop in shops {
+            let minPriceByShop: Int? = realm.objects(Receipt.self)
+                .filter("product == %@", selectedProduct)
+                .filter("shop == %@", shop.shop!)
+                .filter("date BETWEEN %@", [startTime, finishTime])
+                .min(ofProperty: "primaryPrice")
+           let maxPriceByShop: Int? = realm.objects(Receipt.self)
+                .filter("product == %@", selectedProduct)
+                .filter("shop == %@", shop.shop!)
+                .filter("date BETWEEN %@", [startTime, finishTime])
+                .max(ofProperty: "primaryPrice")
+            
+            print("\(shop.shop!): \(String(describing: maxPriceByShop))  \(String(describing: minPriceByShop))")
+    
+            priceShopLabel.lineBreakMode = .byWordWrapping
+            priceShopLabel.numberOfLines = 0
+            priceShopLabel.sizeToFit()
+            if maxPriceByShop != nil && minPriceByShop != nil {
+              priceShopLabel.text! += "\(shop.shop!): \(String(describing: maxPriceByShop!))  \(String(describing: minPriceByShop!))\r\n"
+
+            }
+        }
+    }
+    
+    //необходимо сделать запрос по товарам/ какой товар в каком количестве был куплен в каждом магазине
+    func buyProduct() {
+        let shops = realm.objects(Receipt.self).distinct(by: ["shop"])
+        for shop in shops {
+            let finalPriceForCount: Int = realm.objects(Receipt.self)
+                .filter("product == %@", selectedProduct)
+                .filter("shop == %@", shop.shop!)
+                .filter("date BETWEEN %@", [startTime, finishTime])
+                .sum(ofProperty: "price")
+                
+            let countProduct: Int = realm.objects(Receipt.self)
+                .filter("product == %@", selectedProduct)
+                .filter("shop == %@", shop.shop!)
+                .filter("date BETWEEN %@", [startTime, finishTime])
+                .sum(ofProperty: "count")
+            
+           print("\(shop.shop!): \(String(describing: countProduct))  \(String(describing: finalPriceForCount))")
+
+            priceShopLabel.lineBreakMode = .byWordWrapping
+            priceShopLabel.numberOfLines = 0
+            priceShopLabel.sizeToFit()
+            
+            if finalPriceForCount != 0 {
+                boughtProductLabel.text! += "\(shop.shop!): \(String(describing: countProduct))  \(String(describing: finalPriceForCount))\r\n"
+            }
+        }
+    }
+    
     
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
@@ -182,38 +235,3 @@ extension UIStackView {
     }
 }
 
-
-
-final class GradientView: UIView {
-    
-    private var gradientLayer: CAGradientLayer {
-        return layer as! CAGradientLayer
-    }
-    
-    // MARK: - properties
-    
-    var colors: [UIColor] = [] {
-        didSet { gradientLayer.colors = colors.map { $0.cgColor } }
-    }
-    
-    var startPoint: CGPoint {
-        get { return gradientLayer.startPoint }
-        set { gradientLayer.startPoint = newValue }
-    }
-    
-    var endPoint: CGPoint {
-        get { return gradientLayer.endPoint }
-        set { gradientLayer.endPoint = newValue }
-    }
-    
-    var locations: [Float] {
-        get { return gradientLayer.locations?.map { $0.floatValue } ?? [] }
-        set { gradientLayer.locations = newValue.map(NSNumber.init) }
-    }
-    
-    // MARK: - getters
-    
-    override class var layerClass: AnyClass {
-        return CAGradientLayer.self
-    }
-}

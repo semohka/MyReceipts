@@ -25,7 +25,7 @@ class StorageManager {
 
 
         
-        for i in 0...30{
+        for i in 0...200{
             let counts = Int.random(in: 1 ... 3)
             let price = Int.random(in: 50 ... 300)
             let finalPrice = counts * price
