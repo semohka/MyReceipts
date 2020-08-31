@@ -17,7 +17,9 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         return dataSource.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        shopField.text = dataSource[row]
+        valueSelected = dataSource[row] as String
+        
+
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return dataSource[row]
@@ -33,7 +35,6 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var productField: UITextField!
     @IBOutlet weak var countField: UITextField!
-    @IBOutlet weak var shopField: UITextField!
     @IBOutlet weak var shopPickerViewField: UIPickerView!
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var commentField: UITextField!
@@ -42,7 +43,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
     @IBOutlet weak var primaryPrice: UITextField!
     
     
-    
+    var valueSelected = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +57,12 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         countField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         shopPickerViewField.dataSource = self
         shopPickerViewField.delegate = self
-        shopField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+        pickerView(shopPickerViewField, didSelectRow: 0, inComponent: 0) //первый магазин в списке пикервью идет по умолчанию
         priceField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
-//        primaryPrice.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
         setupEditScreen()
         //для валидации: чтобы обработать данные в текстовом поле
     }
     
-//                // MARK: Table view delegate
-//                    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//                            view.endEditing(true)
-//                    }
     
     func validateFields() {
         var isOk = true
@@ -74,7 +70,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         if countField.text == "" {
             isOk = false
         }
-        if countField.text != "" && Int(countField.text!)! == 0 {
+        if countField.text != "" && Int(countField.text!) ?? 0 == 0 {
             countErrorLabel.isHidden = false
             isOk = false
         }else{
@@ -84,7 +80,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         if priceField.text == "" {
             isOk = false
         }
-        if priceField.text != "" && Int(priceField.text!)! == 0 {
+        if priceField.text != "" && Int(priceField.text!) ?? 0 == 0 {
             priceErrorLabel.isHidden = false
             isOk = false
         }else{
@@ -101,13 +97,12 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
     
     
     func saveReceipt() {
-//        saveReceipt(price: countField.text!, product: productField.text!)
         
         let finalPrice = Int(countField.text!)! * Int(priceField.text!)!
         let newAmountMoney = Int(UserDefaults.standard.integer(forKey: "Tap")) - finalPrice
         UserDefaults.standard.set(newAmountMoney, forKey: "Tap")
         
-        newReceipt = Receipt(value: ["product": productField.text!, "shop": shopField.text!, "price": finalPrice, "myShops": shopField.text!, "count": Int(countField.text!) ?? 0, "comment": commentField.text!, "primaryPrice": Int(priceField.text!)!]) // заполнение объекта чека
+        newReceipt = Receipt(value: ["product": productField.text!, "shop": valueSelected, "price": finalPrice, "count": Int(countField.text!) ?? 0, "comment": commentField.text!, "primaryPrice": Int(priceField.text!)!]) // заполнение объекта чека
         
         editReceipt() //нужно вызывать после создания нового чека, иначе продтягивается пустой объект классе есеипт
         if currentReceipt == nil {
@@ -115,12 +110,6 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
         }
         
     }
-    
-    
-//    func saveReceipt(price: String, product: String) {
-//
-//    } для тестов необходимо передавать параметры в методах. А не обращаться к аутлетам в теле метода. Но пока не стоит это трогать, так как там привязан вигвей.
-    
     
     
     func editReceipt() {
@@ -141,7 +130,7 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
             setupNavigationBar()
             productField.text = currentReceipt?.product
             countField.text = String(currentReceipt!.count)
-            shopField.text = currentReceipt?.shop
+//            shopField.text = currentReceipt?.shop
             if currentReceipt!.count != 0 {
               priceField.text = String(currentReceipt!.price/currentReceipt!.count)
             }

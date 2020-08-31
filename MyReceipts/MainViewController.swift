@@ -12,8 +12,12 @@ import SwiftUI
 
 class MainViewController: UITableViewController {
 
+    
+    
     var receipts: Results<Receipt>!
-
+    
+    var gradientColorForRow = UIColor(red: 0.05, green: 0.48, blue: 0.70, alpha: 0.8)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +28,19 @@ class MainViewController: UITableViewController {
     }
     
     
-    
-  
-    
 
-    // MARK: - Table view data source
+  func gradient(frame:CGRect) -> CAGradientLayer {
+      let layer = CAGradientLayer()
+      layer.frame = frame
+    layer.startPoint = CGPoint(x: 0,y: 0)
+    layer.endPoint = CGPoint(x: 1,y: 1)
+    let colorLeft = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
+    let colorRight = UIColor(red: 0.87, green: 0.86, blue: 0.86, alpha: 1.00)
+    layer.colors = [colorLeft.cgColor,colorRight.cgColor]
+
+      return layer
+  }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // вернет количество строк в зависимости от количества наших чеков
@@ -39,19 +51,19 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        
+      
+        cell.layer.insertSublayer(gradient(frame: cell.bounds), at:0)
         // конфигурация ячейки. Является обязательным иначе программа упадет
         
         let receipt = receipts[indexPath.row]
         
+        
+        
         cell.productLabel.text = receipt.product
         cell.countLabel.text = "\(receipt.count) шт."
-        cell.shopLabel.text = receipt.shop
-        
-        if receipt.count != 0 {
-            cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
-        } else {
-            cell.priceLabel.text = "Количество не может быть равно нулю"
-        }
+        cell.priceLabel.text = String(receipt.price/receipt.count) + " руб. за ед."
+
         
         
         let dateFormatter = DateFormatter()
@@ -60,14 +72,12 @@ class MainViewController: UITableViewController {
         cell.dateLabel.text = dateFormatter.string(from: receipt.date)
         
         if receipt.shop == nil {
-            cell.imageOfStore.image = UIImage(named: receipt.myShops!)
+            cell.imageOfStore.image = UIImage(named: receipt.shop!)
         } else {
             cell.imageOfStore.image = UIImage(named: receipt.shop!)
         }
         
-       
-        
-        cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
+//        cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
         cell.imageOfStore.clipsToBounds = true
         
         return cell

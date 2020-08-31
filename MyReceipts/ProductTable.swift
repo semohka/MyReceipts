@@ -16,7 +16,7 @@ class ProductTable: UITableViewController, UISearchResultsUpdating, UISearchBarD
 
     var selectProduct = ""
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        statistic?.statisticTableField.text = selectProduct
+        statistic?.selectedProductLabel.text = selectProduct
         dismiss(animated: true, completion: nil)
     }
 
@@ -36,7 +36,7 @@ class ProductTable: UITableViewController, UISearchResultsUpdating, UISearchBarD
     
 
     
-    weak var statistic: StatisticsViewController?
+    weak var statistic: StatisticViewController?
     var products: Results<Receipt>! //массив в котором соджержится тип чеков
     
     

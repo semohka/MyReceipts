@@ -195,7 +195,7 @@ class DetailStatisticViewController: UITableViewController {
     
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
-        guard let newReceiptsVC = segue.source as? StatisticsViewController else { return }
+        guard let newReceiptsVC = segue.source as? StatisticViewController else { return }
         newReceiptsVC.navToDetailStatistic(self)
     }
 }
