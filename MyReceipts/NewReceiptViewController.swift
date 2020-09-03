@@ -14,23 +14,21 @@ class NewReceiptViewController: UITableViewController, UIPickerViewDataSource, U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource.count
+        return StorageManager.shops.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        valueSelected = dataSource[row] as String
+        valueSelected = StorageManager.shops[row] as String
         
 
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[row]
+        return StorageManager.shops[row]
     }
     
     
     var currentReceipt: Receipt? //в преременной лежит объект класса Ресеипт, либо нил. Поэтому в единРесеипт мы проверяем на нил
     
     var newReceipt = Receipt() //объект класса Ресеипт (проинициализированный)
-
-    private let dataSource = ["ВкусВилл","Дикси","Пятерочка","Карусель","Лента","Ларек"]
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var productField: UITextField!

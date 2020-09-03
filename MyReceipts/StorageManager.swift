@@ -11,6 +11,9 @@ import RealmSwift
 let realm = try! Realm()
 
 class StorageManager {
+    
+    static var shops = ["ВкусВилл", "Пятерочка", "Дикси", "Лента", "Карусель"]
+    
     static func saveObject(_ receipt : Receipt){
         try! realm.write {
             realm.add(receipt)
@@ -21,7 +24,7 @@ class StorageManager {
     
     static func testReceipts (){
         let products = ["Молоко", "Сыр", "Компот", "Чай", "Колбаса", "Греча", "Рис", "Кефир"]
-        let shops = ["ВкусВилл", "Пятерочка", "Дикси", "Лента", "Карусель"]
+       
 
 
         

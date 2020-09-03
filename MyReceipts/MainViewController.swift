@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import SwiftUI
 
 class MainViewController: UITableViewController {
 
@@ -76,7 +75,7 @@ class MainViewController: UITableViewController {
         } else {
             cell.imageOfStore.image = UIImage(named: receipt.shop!)
         }
-        
+                
 //        cell.imageOfStore.layer.cornerRadius = cell.imageOfStore.frame.size.height / 2
         cell.imageOfStore.clipsToBounds = true
         

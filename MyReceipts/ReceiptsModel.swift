@@ -12,15 +12,14 @@ class Receipt: Object {
     @objc dynamic var product : String? = ""
     @objc dynamic var shop : String? = ""
     @objc dynamic var price : Int = 0
-//    @objc dynamic var myShops : String? = ""
     @objc dynamic var count : Int = 0
     @objc dynamic var comment : String? = ""
     @objc dynamic var date : Date = Date()
     @objc dynamic var primaryPrice : Int = 0
-
-//static let myShops = [
-//"ВкусВилл","Дикси","Пятерочка","Лента","Карусель","Ларек"
-//]
-    
-
 }
+
+
+class Shop: Object {
+    @objc dynamic var shopTitle : String? = ""
+}
+

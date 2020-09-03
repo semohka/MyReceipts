@@ -7,12 +7,80 @@
 //
 
 import UIKit
-import SwiftUI
 
-class SettingsViewController: UIHostingController<SettingsView> {
+
+class SettingsViewController: UITableViewController {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: SettingsView())
+    
+    
+    @IBOutlet weak var amountMoneyTextField: UITextField!
+    @IBOutlet weak var saveAmountMoney: UIButton!
+    @IBOutlet weak var shopListLabel: UILabel!
+    @IBOutlet weak var addShopButton: UIButton!
+    
+    @IBAction func addShop(_ sender: Any) {
+//        openAlert()
     }
     
+    
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+        showShopList()
+        saveAmountMoney.isHidden = true
+//        amountMoneyTextField.text = String(UserDefaults.standard.integer(forKey: "Tap"))
+        tableView.tableFooterView = UIView()
+
+        amountMoneyTextField.addTarget(self, action: #selector(textFieldChanged), for: UIControl.Event.editingChanged)
+//        UserDefaults.standard.set(amountMoneyTextField, forKey: "Tap")
+        
+
+    }
+    
+    func showShopList() {
+//        shopListLabel.text! = ""
+//        let shops = realm.objects(Receipt.self).distinct(by: ["shop"])
+//        for shop in shops {
+//            shopListLabel.lineBreakMode = .byWordWrapping
+//            shopListLabel.numberOfLines = 0
+//            shopListLabel.sizeToFit()
+//            shopListLabel.text! += "\(shop.shop!)\r\n"
+//
+//        }
+        
+    }
+    
+//    func openAlert() {
+//        let alert = UIAlertController(title: "Новый магазин", message: "", preferredStyle: UIAlertController.Style.alert)
+//        let cancel = UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil)
+//        let ok = UIAlertAction(title: "Добавить", style: UIAlertAction.Style.default) { (action : UIAlertAction) -> Void in
+//            let textField = alert.textFields?[0]
+//
+//
+//            StorageManager.shops.append((textField?.text!)!)
+//
+//        }
+//
+//        alert.addAction(ok)
+//        alert.addAction(cancel)
+//        alert.addTextField { (textField: UITextField) in
+//            textField.placeholder = "Введите новый магазин"
+//        }
+        
+//        self.present(alert, animated: true, completion: nil)
+
+//    }
+    
+    
+    
+    func validateFields() {
+        if amountMoneyTextField.text != "" {
+            saveAmountMoney.isHidden = false
+        }
+    }
+    
+    @objc func textFieldChanged() {
+        validateFields()
+    }
+
 }
