@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E02887024BDC44200D91EE8 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02886F24BDC44200D91EE8 /* Chart.swift */; };
 		0E0E2A9A24FFF50B001C503F /* ShopListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0E2A9924FFF50B001C503F /* ShopListTableViewController.swift */; };
+		0E0E2A9C2503DC57001C503F /* AddShopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0E2A9B2503DC57001C503F /* AddShopTableViewController.swift */; };
 		0E17CFA4244C3B1100A19518 /* NewReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */; };
 		0E606F8A2474643F00613D01 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E606F892474643F00613D01 /* StorageManager.swift */; };
 		0E8614EF2485047700B2A89C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8614EE2485047700B2A89C /* SettingsView.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		0E02886F24BDC44200D91EE8 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		0E0E2A9924FFF50B001C503F /* ShopListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListTableViewController.swift; sourceTree = "<group>"; };
+		0E0E2A9B2503DC57001C503F /* AddShopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopTableViewController.swift; sourceTree = "<group>"; };
 		0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReceiptViewController.swift; sourceTree = "<group>"; };
 		0E606F892474643F00613D01 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0E8614EE2485047700B2A89C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				0EDF2484242BAE2C002CD6F2 /* AppDelegate.swift */,
 				0EDF249B242BBA84002CD6F2 /* MainViewController.swift */,
 				0E0E2A9924FFF50B001C503F /* ShopListTableViewController.swift */,
+				0E0E2A9B2503DC57001C503F /* AddShopTableViewController.swift */,
 				0E17CFA3244C3B1100A19518 /* NewReceiptViewController.swift */,
 				0E02886F24BDC44200D91EE8 /* Chart.swift */,
 				0EDF249F242BF5B7002CD6F2 /* ReceiptsModel.swift */,
@@ -256,6 +259,7 @@
 				0ED9996E24C9BCC700F9B82D /* ProductTable.swift in Sources */,
 				0EDF24A0242BF5B7002CD6F2 /* ReceiptsModel.swift in Sources */,
 				0ECB869924D1B7A300FA5407 /* DetailStatisticViewController.swift in Sources */,
+				0E0E2A9C2503DC57001C503F /* AddShopTableViewController.swift in Sources */,
 				0E0E2A9A24FFF50B001C503F /* ShopListTableViewController.swift in Sources */,
 				0EDF249C242BBA84002CD6F2 /* MainViewController.swift in Sources */,
 				0E606F8A2474643F00613D01 /* StorageManager.swift in Sources */,

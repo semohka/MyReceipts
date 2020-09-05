@@ -16,11 +16,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var amountMoneyTextField: UITextField!
     @IBOutlet weak var saveAmountMoney: UIButton!
     @IBOutlet weak var shopListLabel: UILabel!
-    @IBOutlet weak var addShopButton: UIButton!
-    
-    @IBAction func addShop(_ sender: Any) {
-//        openAlert()
-    }
     
     
     

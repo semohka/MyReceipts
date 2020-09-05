@@ -1002,31 +1002,6 @@
                                             <segue destination="9Oi-zQ-BQK" kind="show" id="qrk-2c-LOI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="89x-jR-Fwl">
-                                        <rect key="frame" x="0.0" y="171.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="89x-jR-Fwl" id="gqZ-ai-GYd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfv-TM-e6z">
-                                                    <rect key="frame" x="133.5" y="6" width="147" height="32"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                    <state key="normal" title="Добавить магазин">
-                                                        <color key="titleColor" name="myGreen"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="addShop:" destination="obQ-Te-q8X" eventType="touchUpInside" id="5gr-v8-lbO"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="bfv-TM-e6z" firstAttribute="centerY" secondItem="gqZ-ai-GYd" secondAttribute="centerY" id="Kzz-2T-ZEj"/>
-                                                <constraint firstItem="bfv-TM-e6z" firstAttribute="centerX" secondItem="gqZ-ai-GYd" secondAttribute="centerX" id="g04-nn-G2q"/>
-                                                <constraint firstItem="bfv-TM-e6z" firstAttribute="top" secondItem="gqZ-ai-GYd" secondAttribute="topMargin" constant="-5" id="gNI-f2-qpi"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1037,7 +1012,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Настройки" id="rZX-ps-BFQ"/>
                     <connections>
-                        <outlet property="addShopButton" destination="bfv-TM-e6z" id="hGS-4w-R2L"/>
                         <outlet property="amountMoneyTextField" destination="k4h-Pn-mCg" id="jY7-WG-gaY"/>
                         <outlet property="saveAmountMoney" destination="XD2-Di-ajd" id="85D-cy-hhP"/>
                         <outlet property="shopListLabel" destination="tVy-Ak-DpS" id="Zn1-4F-b6s"/>
@@ -1047,7 +1021,7 @@
             </objects>
             <point key="canvasLocation" x="714.49275362318849" y="1628.5714285714284"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Сохраненные магазины-->
         <scene sceneID="MmQ-Vk-qCj">
             <objects>
                 <tableViewController id="uge-Qj-qDG" customClass="ShopListTableViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -1070,15 +1044,85 @@
                             <outlet property="delegate" destination="uge-Qj-qDG" id="X41-uH-cHl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="JFi-KG-AFt">
+                    <navigationItem key="navigationItem" title="Сохраненные магазины" id="JFi-KG-AFt">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ITH-8S-uQ1">
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="uid-fc-7b5" kind="showDetail" id="9wS-C0-Cyf"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FL-1A-bVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2340.5797101449275" y="1628.5714285714284"/>
+        </scene>
+        <!--Заполните форму-->
+        <scene sceneID="UZE-gi-oEs">
+            <objects>
+                <tableViewController id="Lkm-aS-Ub1" customClass="AddShopTableViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MUC-wN-REg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="K8j-CC-o0X">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="201" id="yAK-dT-SRw">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="201"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAK-dT-SRw" id="xUb-y0-vWR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AAo-kr-sCR">
+                                        <rect key="frame" x="0.0" y="229" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AAo-kr-sCR" id="2rq-lp-LYB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название магазина" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOf-jE-wTQ">
+                                                    <rect key="frame" x="20" y="4" width="374" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Lkm-aS-Ub1" id="Pno-eV-rbE"/>
+                            <outlet property="delegate" destination="Lkm-aS-Ub1" id="CYg-Ko-Rbj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Заполните форму" id="JG8-Fk-8EO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Owe-Lf-Qlk"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AB4-BR-1uS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4069.5652173913045" y="1629.9107142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WtC-WY-iPy">
+            <objects>
+                <navigationController id="uid-fc-7b5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pl1-7c-9IR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lkm-aS-Ub1" kind="relationship" relationship="rootViewController" id="jTr-jl-VEO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9I-wl-34K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3152" y="1629"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U2z-bp-Ws9">
