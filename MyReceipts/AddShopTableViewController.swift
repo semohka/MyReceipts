@@ -8,83 +8,69 @@
 
 import UIKit
 
-class AddShopTableViewController: UITableViewController {
+class AddShopTableViewController: UITableViewController, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageShop: UIImageView!
+    @IBOutlet weak var nameShop: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView() //убирает разлиновку до конца страницы
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let actionSheet = UIAlertController(title: nil,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+            //вызов алерта при нажатии на ячейку с фото
+            let camera = UIAlertAction(title: "Камера", style: .default) { _ in
+                self.chooseImagePicker(source: .camera)
+            }
+            let photo = UIAlertAction(title: "Фото", style: .default) { _ in
+                self.chooseImagePicker(source: .photoLibrary)
+            }
+            let cancel = UIAlertAction(title: "Отмена", style: .cancel)
+            
+            actionSheet.addAction(camera)
+            actionSheet.addAction(photo)
+            actionSheet.addAction(cancel)
+            
+            
+            present(actionSheet, animated: true)//как любой вью контроллер , нужно вызвать наш контроллер actionSheet
+        } else {
+            view.endEditing(true) //если тапнуть за пределами нулевой ячейуи то клавиатура должна скрываться
+        }
+        
     }
+    
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+extension AddShopTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
+        //скрывает клавиатуру по нажатию на ВВОД
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension AddShopTableViewController: UIImagePickerControllerDelegate {
+    func chooseImagePicker(source: UIImagePickerController.SourceType){
+        if UIImagePickerController.isSourceTypeAvailable(source){
+            let imagePicker = UIImagePickerController()//при вызове метода чусИмаджПикер в качестве параметра этого метода мы должны определить источник выбора изображения, если данный источник будет доступен. тогда уже создаем экземпляр класса юайИмаджПикерКонтроллер и далее работает с экземпляром этого класса
+            imagePicker.delegate = self //этот объект будет делегировать обязанности по выполнению данного метода. Нужно определить объект который будет выполнять данный метод (т.е.назначить делегата) , это будет селф, то есть наш класс
+            imagePicker.allowsEditing = true //это позволит пользователю РЕДАКТИРОВАТЬ выбранное изображение, например отмасштабировать перед тем, как применить к конкретному магазину
+            imagePicker.sourceType = source//определяем тип источника выбранного изображения. То есть мы присваиваем значение параметра соурс свойству соурсТайп
+            present(imagePicker, animated: true)//наше свойство имаджПикер по сути является вьюконтроллером и как любой другой вьюконтроллер, для того чтобы ототбразить его на экране нам необходимо вызвать метод презент. Данный метод реализован. Теперь его надо вызвать
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //мы должны взять значение по ключу словаря инфо. Ключами данного словаря являются свойцства того самой структуры юайИмаджПикерКонтроллер.ИнфоКей описание которой написано в документации.Свойство данной структуры отпределяют тип контента и значения этих свойств будем присваивать нашему аутлету имаджШоп
+        imageShop.image = info[.editedImage] as? UIImage//обращаемся к параметру инфо и берем значение  по ключу эдитедИмадж и надо привести это значение к юайИмедж. Данный тип контента позволяет ИСПОЛЬЗОВАТЬ ОТРЕДАКТИРОВАННОЕ пользователем изображение
+        imageShop.contentMode = .scaleAspectFill//позволяет масштабировать изображение по содержимому юайИмадж
+        imageShop.clipsToBounds = true//обрезать изображение по границам самого юайИмедж
+        dismiss(animated: true)//определившись с изображением нам необходимо закрыть имаджКонтроллер
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

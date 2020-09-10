@@ -1045,10 +1045,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сохраненные магазины" id="JFi-KG-AFt">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ITH-8S-uQ1">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gKT-Xo-azU">
                             <connections>
-                                <segue destination="uid-fc-7b5" kind="showDetail" id="9wS-C0-Cyf"/>
+                                <segue destination="uid-fc-7b5" kind="presentation" id="s69-qI-QqS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1061,35 +1060,55 @@
         <scene sceneID="UZE-gi-oEs">
             <objects>
                 <tableViewController id="Lkm-aS-Ub1" customClass="AddShopTableViewController" customModule="MyReceipts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MUC-wN-REg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MUC-wN-REg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="K8j-CC-o0X">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="201" id="yAK-dT-SRw">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="201"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="yAK-dT-SRw">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAK-dT-SRw" id="xUb-y0-vWR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlug" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-HE-EPT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="i0O-HE-EPT" secondAttribute="trailing" id="9f1-7S-Eln"/>
+                                                <constraint firstItem="i0O-HE-EPT" firstAttribute="top" secondItem="xUb-y0-vWR" secondAttribute="top" id="ZJd-Bl-ZoV"/>
+                                                <constraint firstItem="i0O-HE-EPT" firstAttribute="leading" secondItem="xUb-y0-vWR" secondAttribute="leading" id="fa3-mG-PeK"/>
+                                                <constraint firstAttribute="bottom" secondItem="i0O-HE-EPT" secondAttribute="bottom" id="iiP-73-Aae"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AAo-kr-sCR">
-                                        <rect key="frame" x="0.0" y="229" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="278" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AAo-kr-sCR" id="2rq-lp-LYB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название магазина" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOf-jE-wTQ">
-                                                    <rect key="frame" x="20" y="4" width="374" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название магазина" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOf-jE-wTQ">
+                                                    <rect key="frame" x="20" y="4.5" width="374" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Lkm-aS-Ub1" id="0vb-FD-JMs"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ZOf-jE-wTQ" secondAttribute="bottom" constant="5.5" id="Mqu-fO-lP6"/>
+                                                <constraint firstItem="ZOf-jE-wTQ" firstAttribute="leading" secondItem="2rq-lp-LYB" secondAttribute="leading" constant="20" id="Tsl-Dx-dke"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZOf-jE-wTQ" secondAttribute="trailing" constant="20" id="VJx-Zk-d2L"/>
+                                                <constraint firstItem="ZOf-jE-wTQ" firstAttribute="centerX" secondItem="2rq-lp-LYB" secondAttribute="centerX" id="pin-sp-JYv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -1101,8 +1120,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Заполните форму" id="JG8-Fk-8EO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Owe-Lf-Qlk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GdA-e4-n4x"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageShop" destination="i0O-HE-EPT" id="Zjw-6X-PtG"/>
+                        <outlet property="nameShop" destination="ZOf-jE-wTQ" id="fEt-oE-Vse"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AB4-BR-1uS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1112,8 +1135,9 @@
         <scene sceneID="WtC-WY-iPy">
             <objects>
                 <navigationController id="uid-fc-7b5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lJw-vQ-N9O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pl1-7c-9IR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1172,6 +1196,7 @@
         <image name="doc.text.magnifyingglass" catalog="system" width="116" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
+        <image name="photoPlug" width="700" height="700"/>
         <namedColor name="myGreen">
             <color red="0.16300000250339508" green="0.37299999594688416" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
